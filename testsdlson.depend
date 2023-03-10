@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1678347403 source:c:\apps\hay\testsdlson\main.cpp
+	<iostream>
+	<SDL.h>
+
+1678435304 source:c:\apps\hay\testsdl\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+
