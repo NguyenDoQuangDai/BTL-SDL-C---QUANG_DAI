@@ -17,7 +17,7 @@ class Transform
         }
 
 
-    private:
+    public:
         inline void TranslateX(float x) {X += x;}
         inline void TranslateY(float y) {Y += y;}
         inline void Translate(Vector2D v) {X += v.X; Y += v.Y;}

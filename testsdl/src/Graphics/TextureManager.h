@@ -20,6 +20,7 @@ class TextureManager
         void Clean(); //don texture khoi bo nho
 
         void Draw(std::string id, int x, int y, int width, int height, SDL_RendererFlip flip = SDL_FLIP_NONE); //ve tren screen
+        void DrawFrame(std:: string id, int x, int y, int width, int height, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
     private:
         TextureManager(){}
