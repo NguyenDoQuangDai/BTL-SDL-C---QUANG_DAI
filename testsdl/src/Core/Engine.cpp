@@ -3,6 +3,9 @@
 #include "Vector2D.h"
 #include "Transform.h"
 #include "Warrior.h"
+#include "Input.h"
+#include "Timer.h"
+#include "MapParser.h"
 
 #include <iostream>
 #include<string>
@@ -24,7 +27,9 @@ bool Engine::Init()
         return false; //check xem khoi tao sdl thanh cong khoong
     }
 
-    m_Window = SDL_CreateWindow("Soft Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+
+    m_Window = SDL_CreateWindow("Soft Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, window_flags);
     if(m_Window == nullptr) {
        SDL_Log("Failed to create Window: %s", SDL_GetError());
         return false; //check xem tao window thanh cong khong
@@ -36,8 +41,14 @@ bool Engine::Init()
         return false; //check xem tao renderer thanh cong khong
     }
 
-    TextureManager::GetInstance()->Load("player", "assets/Attack1.png"); //load image
-    player = new Warrior(new Properties("player", 0, 0, 200, 200));
+    if (!MapParser::GetInstance()->Load()) {
+		std::cout << "Failed to Load map!" << std::endl;
+	}
+    m_LevelMap = MapParser::GetInstance()->GetMap("Level1");
+
+    TextureManager::GetInstance()->Load("player", "assets/Idle.png"); //load frame img
+    TextureManager::GetInstance()->Load("player_run", "assets/Run.png");
+    player = new Warrior(new Properties("player_run", 250, 295, 200, 200));
 
     Transform tf;
     tf.Log();
@@ -47,7 +58,9 @@ bool Engine::Init()
 
 void Engine::Update()
 {
-    player->Update(0);
+    float dt = Timer::GetInstance()->GetDeltaTime();
+    m_LevelMap->Update();
+    player->Update(dt);
 }
 
 void Engine::Render()
@@ -55,19 +68,14 @@ void Engine::Render()
     SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255);
     SDL_RenderClear(m_Renderer);
 
+    m_LevelMap->Render();
     player->Draw();
     SDL_RenderPresent(m_Renderer);
 }
 
 void Engine::Events()
 {
-    SDL_Event event;
-    SDL_PollEvent(&event);
-    switch(event.type) {
-    case SDL_QUIT:
-        Quit();
-        break;
-    }
+    Input::GetInstance()->Listen();
 }
 
 bool Engine::Clean()

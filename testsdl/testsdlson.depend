@@ -8,10 +8,12 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1679374981 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\main.cpp
-	<Engine.h>
+1679670568 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\main.cpp
+	"Timer.h"
+	"Engine.h"
 
-1679418317 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.h
+1679889662 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.h
+	"GameMap.h"
 	<iostream>
 	<string>
 	<SDL.h>
@@ -19,12 +21,15 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679546275 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.cpp
+1679902526 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"Vector2D.h"
 	"Transform.h"
 	"Warrior.h"
+	"Input.h"
+	"Timer.h"
+	"MapParser.h"
 	<iostream>
 	<string>
 	<SDL.h>
@@ -32,7 +37,7 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679539911 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.h
+1679894919 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.h
 	<iostream>
 	<string>
 	<map>
@@ -41,7 +46,7 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679503740 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.cpp
+1679898118 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.cpp
 	"TextureManager.h"
 	"Engine.h"
 	<iostream>
@@ -59,12 +64,13 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679557093 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\transform.h
+1679893108 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\transform.h
 	"Vector2D.h"
 
-1679558423 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.cpp
+1679893108 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
+	"Input.h"
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
@@ -100,7 +106,7 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679558415 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\rigidbody.h
+1679893054 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\rigidbody.h
 	"Vector2D.h"
 	<iostream>
 	<string>
@@ -108,4 +114,88 @@
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
+
+1679589062 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\inputs\input.cpp
+	"Input.h"
+	"Engine.h"
+
+1679588128 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\inputs\input.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1679671609 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\timer\timer.h
+
+1679670568 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\timer\timer.cpp
+	"Timer.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1679898080 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\tilelayer.cpp
+	"TileLayer.h"
+	"TextureManager.h"
+
+1679893688 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\tilelayer.h
+	"Layer.h"
+	<vector>
+	<string>
+
+1679676842 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\layer.h
+
+1305426297 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\tinystr.cpp
+	"tinystr.h"
+
+1305426297 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\tinystr.h
+	<assert.h>
+	<string.h>
+
+1305426297 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1679897848 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1305426297 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1305426297 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1679900648 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.cpp
+	"MapParser.h"
+
+1679896878 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.h
+	"GameMap.h"
+	"TileLayer.h"
+	"tinyxml.h"
+	<string>
+	<map>
+
+1679829173 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\gamemap.h
+	"Layer.h"
+	<vector>
+
+1305426297 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\xmltest.cpp
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<crtdbg.h>
+	"tinyxml.h"
 

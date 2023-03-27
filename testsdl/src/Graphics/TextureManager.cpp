@@ -44,6 +44,13 @@ void TextureManager::DrawFrame(std::string id, int x, int y, int width, int heig
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &dstRect, 0, nullptr, flip);
 }//ve cac frame de taoj animation
 
+void TextureManager::DrawTile(std::string tilesetID, int tileSize, int x, int y, int row, int frame, SDL_RendererFlip flip)
+{
+    SDL_Rect dstRect = {x, y, tileSize, tileSize };
+	SDL_Rect srcRect = {tileSize * frame, tileSize * row, tileSize, tileSize };
+	SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[tilesetID], &srcRect, &dstRect, 0, 0, flip);
+}
+
 void TextureManager::Drop(std::string id)
 {
     SDL_DestroyTexture(m_TextureMap[id]); //xoa texture ko can nua
@@ -58,7 +65,7 @@ void TextureManager::Clean()
     }
     m_TextureMap.clear(); //clear all
 
-    SDL_Log("texture map cleaned!");
+    SDL_Log("Texture map cleaned!");
 }
 
 

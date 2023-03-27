@@ -1,5 +1,6 @@
 #include "Warrior.h"
 #include "TextureManager.h"
+#include "Input.h"
 
 #include<SDL.h>
 #include<SDL_image.h>
@@ -11,7 +12,7 @@ Warrior::Warrior(Properties* props): Character(props)
 {
     m_RigidBody = new RigidBody();
     m_Animation = new Animation();
-    m_Animation->SetProps(m_TextureID, 1, 6, 150, SDL_FLIP_HORIZONTAL);
+    m_Animation->SetProps(m_TextureID, 1, 8, 200);
 }
 
 void Warrior::Draw()
@@ -21,11 +22,23 @@ void Warrior::Draw()
 
 void Warrior::Update(float dt)
 {
-    m_RigidBody->Update(0.5);
-    m_RigidBody->ApplyForceX(5);
+    m_Animation->SetProps("player", 1, 8, 200);
+    m_RigidBody->UnSetForce();
+
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A) || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_LEFT)) {
+        m_RigidBody->ApplyForceX(5*BACKWARD);
+        m_Animation->SetProps("player_run", 1, 8, 200, SDL_FLIP_HORIZONTAL);
+    }
+
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D) || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RIGHT)) {
+        m_RigidBody->ApplyForceX(5*FORWARD);
+        m_Animation->SetProps("player_run", 1, 8, 200);
+    }
+
+    m_RigidBody->Update(dt);
 
     m_Transform->TranslateX(m_RigidBody->Position().X);
-    m_Transform->TranslateY(m_RigidBody->Position().Y);
+    //m_Transform->TranslateY(m_RigidBody->Position().Y);
 
     m_Animation->Update();
 }

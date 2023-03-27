@@ -1,5 +1,5 @@
-
-#include<Engine.h>
+#include "Timer.h"
+#include "Engine.h"
 
 int main(int argc, char** argv) {
 
@@ -12,6 +12,7 @@ int main(int argc, char** argv) {
         // tinh lai vi tri nv tren mh
         Engine::GetInstance()->Render();
         //tra ket qua
+        Timer::GetInstance()->Tick();
     }
 
     Engine::GetInstance()->Clean();
