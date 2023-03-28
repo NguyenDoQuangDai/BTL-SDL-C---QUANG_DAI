@@ -1,6 +1,7 @@
 #include "Warrior.h"
 #include "TextureManager.h"
 #include "Input.h"
+#include "GameObject.h"
 
 #include<SDL.h>
 #include<SDL_image.h>
@@ -41,6 +42,9 @@ void Warrior::Update(float dt)
     //m_Transform->TranslateY(m_RigidBody->Position().Y);
 
     m_Animation->Update();
+
+    m_Origin->X = m_Transform->X + m_Width/2;
+    m_Origin->Y = m_Transform->Y + m_Height/2;
 }
 
 void Warrior::Clean()

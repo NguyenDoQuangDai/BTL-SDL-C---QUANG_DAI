@@ -12,7 +12,7 @@
 	"Timer.h"
 	"Engine.h"
 
-1679889662 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.h
+1680022461 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.h
 	"GameMap.h"
 	<iostream>
 	<string>
@@ -21,7 +21,7 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679902761 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.cpp
+1680021520 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -30,6 +30,7 @@
 	"Input.h"
 	"Timer.h"
 	"MapParser.h"
+	"Camera.h"
 	<iostream>
 	<string>
 	<SDL.h>
@@ -46,9 +47,10 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679898118 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.cpp
+1680022326 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.cpp
 	"TextureManager.h"
 	"Engine.h"
+	"Camera.h"
 	<iostream>
 	<string>
 	<SDL.h>
@@ -67,10 +69,11 @@
 1679893108 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\transform.h
 	"Vector2D.h"
 
-1679902761 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.cpp
+1680018154 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
 	"Input.h"
+	"GameObject.h"
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
@@ -86,11 +89,16 @@
 	<iostream>
 	<string>
 
-1679540055 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\object\gameobject.h
+1680019216 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\object\gameobject.h
 	"IObject.h"
 	"Transform.h"
+	"Point.h"
 	<iostream>
 	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
 
 1679503759 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\object\iobject.h
 
@@ -178,7 +186,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1679900648 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.cpp
+1680020328 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.cpp
 	"MapParser.h"
 
 1679896878 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.h
@@ -198,4 +206,16 @@
 	<stdio.h>
 	<crtdbg.h>
 	"tinyxml.h"
+
+1680022258 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\camera\camera.cpp
+	"Camera.h"
+
+1680019086 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\camera\camera.h
+	"SDL.h"
+	"Point.h"
+	"Vector2D.h"
+	"Engine.h"
+
+1680019086 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\point.h
+	<iostream>
 

@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "Timer.h"
 #include "MapParser.h"
+#include "Camera.h"
 
 #include <iostream>
 #include<string>
@@ -48,10 +49,13 @@ bool Engine::Init()
 
     TextureManager::GetInstance()->Load("player", "assets/Idle.png"); //load frame img
     TextureManager::GetInstance()->Load("player_run", "assets/Run.png");
-    player = new Warrior(new Properties("player_run", 250, 295, 200, 200));
+    TextureManager::GetInstance()->Load("background", "assets/Image/Doge.png");
+    player = new Warrior(new Properties("player", 250, 295, 200, 200));
 
     Transform tf;
     tf.Log();
+
+    Camera::GetInstance()->SetTarget(player->GetOrigin());
 
     return m_IsRunning = true;
 }
@@ -61,12 +65,15 @@ void Engine::Update()
     float dt = Timer::GetInstance()->GetDeltaTime();
     m_LevelMap->Update();
     player->Update(dt);
+    Camera::GetInstance()->Update(dt);
 }
 
 void Engine::Render()
 {
     SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255);
     SDL_RenderClear(m_Renderer);
+
+    TextureManager::GetInstance()->Draw("background", 0, 0, 1920, 1080);
 
     m_LevelMap->Render();
     player->Draw();
