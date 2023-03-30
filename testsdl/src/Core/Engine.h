@@ -31,6 +31,7 @@ class Engine
         void Render();
         void Events();
 
+        inline GameMap* GetMap() {return m_LevelMap;}
         inline bool IsRunning() {return m_IsRunning;} //check xem engine dang chay ko
         inline SDL_Renderer* GetRenderer() {return m_Renderer;}
 

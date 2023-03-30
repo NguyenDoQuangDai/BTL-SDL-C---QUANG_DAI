@@ -4,7 +4,7 @@ MapParser* MapParser::s_Instance = nullptr;
 
 bool MapParser::Load()
 {
-	return Parse("Level1", "assets/Maps/map.xml");
+	return Parse("Level1", "assets/maps/map3.xml");
 }
 
 bool MapParser::Parse(std::string id, std::string source) //ptich tileset
@@ -45,23 +45,23 @@ Tileset MapParser::ParseTileset(TiXmlElement* xmlTileset)
 {
     Tileset tileset;
     tileset.Name = xmlTileset->Attribute("name");
-
     xmlTileset->Attribute("firstgid", &tileset.FirstID);
+
     xmlTileset->Attribute("tilecount", &tileset.TileCount);
     tileset.LastID = (tileset.FirstID + tileset.TileCount) - 1;
 
     xmlTileset->Attribute("columns", &tileset.ColCount);
-    tileset.RowCount = tileset.TileCount/tileset.ColCount;
+    tileset.RowCount = tileset.TileCount / tileset.ColCount;
     xmlTileset->Attribute("tilewidth", &tileset.TileSize);
 
-    TiXmlElement * image = xmlTileset->FirstChildElement();
+    TiXmlElement* image = xmlTileset->FirstChildElement();
     tileset.Source = image->Attribute("source");
     return tileset;
 }
 
 TileLayer* MapParser::ParseTileLayer(TiXmlElement* xmlLayer, TilesetList tilesets, int tilesize, int rowcount, int colcount)
 {
-    TiXmlElement* data;
+    TiXmlElement* data = nullptr;
     for(TiXmlElement* e = xmlLayer->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
         if(e->Value() == std::string("data")) {
             data = e;
@@ -76,7 +76,7 @@ TileLayer* MapParser::ParseTileLayer(TiXmlElement* xmlLayer, TilesetList tileset
 
     for(int row = 0; row < rowcount; row++) {
         for(int col = 0; col < colcount; col++) {
-            getline(iss, id, ',');
+            std::getline(iss, id, ',');
             std::stringstream convertor(id);
             convertor >> tilemap[row][col];
 

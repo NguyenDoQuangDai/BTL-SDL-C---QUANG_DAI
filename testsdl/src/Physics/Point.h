@@ -11,7 +11,7 @@ public:
 
 public:
 
-	Point(float X = 0, float Y = 0) : X(X), Y(Y){ }
+	Point(float X = 0, float Y = 0) : X(X), Y(Y) {}
 
     // tinh vi tri va di chuyen (+ - *)
 	inline Point operator + (const Point& p2) const {
@@ -25,8 +25,7 @@ public:
 		return p1;
 	}
 
-
-	inline Point operator-(const Point& p2) const {
+	inline Point operator - (const Point& p2) const {
 		return Point(X - p2.X, Y - p2.Y);
 	}
 
@@ -37,13 +36,12 @@ public:
 		return p1;
 	}
 
-
-	inline Point operator*(const float scalar) const {
+	inline Point operator * (const float scalar) const {
 		return Point(X * scalar, Y * scalar);
 	}
 
 	void Log(std::string msg = "") {
-		std::cout << msg << " (X Y) = (" << X << " " << Y << ")" << std::endl;
+		std::cout << msg << "(X Y) = (" << X << " " << Y << ")" << std::endl;
 	}
 };
 

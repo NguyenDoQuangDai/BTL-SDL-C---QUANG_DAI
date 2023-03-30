@@ -49,8 +49,9 @@ bool Engine::Init()
 
     TextureManager::GetInstance()->Load("player", "assets/Idle.png"); //load frame img
     TextureManager::GetInstance()->Load("player_run", "assets/Run.png");
+    TextureManager::GetInstance()->Load("player_jump", "assets/Jump.png");
     TextureManager::GetInstance()->Load("background", "assets/Image/Doge.png");
-    player = new Warrior(new Properties("player", 250, 295, 200, 200));
+    player = new Warrior(new Properties("player", 320, 285, 200, 200));
 
     Transform tf;
     tf.Log();

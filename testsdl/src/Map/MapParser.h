@@ -20,7 +20,7 @@ class MapParser
 
     private:
         bool Parse(std::string id, std::string source);
-        Tileset ParseTileset(TiXmlElement * xmlTileset);
+        Tileset ParseTileset(TiXmlElement* xmlTileset);
         TileLayer* ParseTileLayer(TiXmlElement* xmlLayer, TilesetList tilesets, int tilesize, int rowcount, int colcount);
 
 
