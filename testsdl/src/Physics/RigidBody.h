@@ -16,7 +16,7 @@
 
 #define FORWARD 1
 #define BACKWARD -1
-#define UPWARD -2.5
+#define UPWARD -2.8
 #define DOWNWARD 1
 
 class RigidBody

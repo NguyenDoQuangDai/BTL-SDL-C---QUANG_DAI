@@ -8,7 +8,7 @@ void Camera::Update(float dt)
 		m_ViewBox.x = m_Target->X - SCREEN_WIDTH/2;
 		m_ViewBox.y = m_Target->Y - SCREEN_HEIGHT/2;  //-->di chuyen cam khi nv di qua nua mh
 
-        //giu nv khong thoat khoi cam
+
 		if (m_ViewBox.x < 0) {
 			m_ViewBox.x = 0;
 		}
@@ -17,7 +17,7 @@ void Camera::Update(float dt)
 			m_ViewBox.y = 0;
 		}
 
-        //giu camera ko di ra ngoai map
+
 		if (m_ViewBox.x > (2.665 * SCREEN_WIDTH - m_ViewBox.w)) {
 			m_ViewBox.x = (2.665 * SCREEN_WIDTH - m_ViewBox.w);
 		}

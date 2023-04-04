@@ -15,13 +15,12 @@ class Animation
         Animation(){};
 
         void Update();
-        void Draw(float x, float y, int spritWidth, int spritHeight);
-        void SetProps(std::string textureID, int spritRow, int frameCount, int animSpeed, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void Draw(float x, float y, int spritWidth, int spritHeight, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void SetProps(std::string textureID, int spritRow, int frameCount, int speed);
 
     private:
-        int m_SpriteRow, m_SpriteFrame, m_AnimSpeed, m_FrameCount;
+        int m_SpriteRow, m_CurrentFrame, m_Speed, m_FrameCount;
         std::string m_TextureID;
-        SDL_RendererFlip m_Flip;
 };
 
 #endif // ANIMATION_H

@@ -2,7 +2,9 @@
 #define WARRIOR_H
 
 #define JUMP_TIME 10.0f
-#define JUMP_FORCE 8.0f
+#define JUMP_FORCE 7.0f
+#define RUN_FORCE 4.0f
+#define ATTACK_TIME 25.0f
 
 #include "Character.h"
 #include "Animation.h"
@@ -21,11 +23,19 @@ class Warrior: public Character
         virtual void Clean();//
 
     private:
-        bool m_IsJumping;   //nv nhay
+        void AnimationState();
+
+    private:
+        bool m_IsJumping;
+        bool m_IsRunning;
+        bool m_IsFalling;
         bool m_IsGrounded;  //nv cham dat -> moi duoc nhay
+        bool m_IsAttacking;
+        bool m_IsCrouching;
 
         float m_JumpTime;   //tg nhay len
         float m_JumpForce;  //luc nhay
+        float m_AttackTime;
 
         Collider* m_Collider;
         Animation* m_Animation;

@@ -6,6 +6,8 @@
 #include<SDL_mixer.h>
 #include<SDL_ttf.h>
 
+enum Axis {HORIZONTAL, VERTICAL};
+
 class Input
 {
     public:
@@ -16,6 +18,8 @@ class Input
 
         void Listen();
         bool GetKeyDown(SDL_Scancode key);
+
+        int GetAxisKey(Axis axis);
 
     private:
         Input();

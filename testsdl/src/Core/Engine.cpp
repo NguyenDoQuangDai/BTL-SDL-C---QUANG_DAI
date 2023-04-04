@@ -47,18 +47,34 @@ bool Engine::Init()
 	}
     m_LevelMap = MapParser::GetInstance()->GetMap("Level1");
 
-    TextureManager::GetInstance()->Load("player", "assets/Idle.png"); //load frame img
+    TextureManager::GetInstance()->ParseTextures("assets/textures.tml");
+/*
+    TextureManager::GetInstance()->Load("player_idle", "assets/Idle.png"); //load frame img
     TextureManager::GetInstance()->Load("player_run", "assets/Run.png");
     TextureManager::GetInstance()->Load("player_jump", "assets/Jump.png");
-    TextureManager::GetInstance()->Load("background", "assets/Image/Doge.png");
-    player = new Warrior(new Properties("player", 320, 285, 200, 200));
+    TextureManager::GetInstance()->Load("player_fall", "assets/Fall.png");
+    TextureManager::GetInstance()->Load("player_crouch", "assets/Crouch.png");
+    TextureManager::GetInstance()->Load("player_attack", "assets/Attack5.png");
 
-    Transform tf;
-    tf.Log();
+    TextureManager::GetInstance()->Load("background", "assets/Image/Doge.png");
+*/
+    player = new Warrior(new Properties("player", 320, 280, 200, 200));
 
     Camera::GetInstance()->SetTarget(player->GetOrigin());
 
     return m_IsRunning = true;
+}
+
+void Engine::Render()
+{
+    SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255);
+    SDL_RenderClear(m_Renderer);
+
+    TextureManager::GetInstance()->Draw("background", 0, 0, 1920, 1080, 1.1, 1.1, 0.3);
+
+    m_LevelMap->Render();
+    player->Draw();
+    SDL_RenderPresent(m_Renderer);
 }
 
 void Engine::Update()
@@ -67,18 +83,6 @@ void Engine::Update()
     m_LevelMap->Update();
     player->Update(dt);
     Camera::GetInstance()->Update(dt);
-}
-
-void Engine::Render()
-{
-    SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255);
-    SDL_RenderClear(m_Renderer);
-
-    TextureManager::GetInstance()->Draw("background", 0, 0, 1920, 1080);
-
-    m_LevelMap->Render();
-    player->Draw();
-    SDL_RenderPresent(m_Renderer);
 }
 
 void Engine::Events()
