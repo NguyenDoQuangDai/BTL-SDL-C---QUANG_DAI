@@ -23,7 +23,7 @@ struct Properties {
             Width = width;
             Height = height;
             TextureID = textureID;
-        }//dinh nghia khoi tao object
+        }//chg trinh con dinh nghia properties(-> dinh nghia cach objects dc khoi tao)
 
     public:
         std::string TextureID;
@@ -32,19 +32,20 @@ struct Properties {
         SDL_RendererFlip Flip;
 };
 
-class GameObject : public IObject
+class GameObject : public IObject //thua ke tu IObject
 {
     public:
-        GameObject(Properties* props): m_TextureID(props->TextureID),
+        GameObject(Properties* props): m_TextureID(props->TextureID), //khoi tao moi thanh phan o duoi
             m_Width(props->Width), m_Height(props->Height), m_Flip(props->Flip) {
-            m_Transform = new Transform(props->X, props->Y);
+            m_Transform = new Transform(props->X, props->Y); //dinh nghia transform vs X&Y
 
             float px = props->X + props->Width/2;
             float py = props->Y + props->Height/2;
-            m_Origin = new Point(px, py);
+            //lay trung tam cua object (px, py)
+            m_Origin = new Point(px, py); //khoi tao member Origin voi vi tri trung tam object
         }
 
-        inline Point* GetOrigin() {return m_Origin;}
+        inline Point* GetOrigin() {return m_Origin;} //lay goc Origin cho camera position
 
         virtual void Draw()=0;//
         virtual void Update(float dt)=0;// ve/don object
@@ -52,10 +53,10 @@ class GameObject : public IObject
 
     protected:
         Point* m_Origin;
-        Transform* m_Transform;
-        int m_Width, m_Height;
-        std::string m_TextureID;
-        SDL_RendererFlip m_Flip;
+        Transform* m_Transform; //khoi tao member transform
+        int m_Width, m_Height; //khoi tao chieu dai, rong cho Object
+        std::string m_TextureID; //textureID nay tham chieu den cai texture cua object thuc su co
+        SDL_RendererFlip m_Flip; //dinh huong object (xoay ngang hay doc)
 };
 
 #endif // GAMEOBJECT_H

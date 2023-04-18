@@ -1,6 +1,11 @@
 #ifndef COLLIDER_H
 #define COLLIDER_H
 
+#include "CollisionHandler.h"
+#include "Camera.h"
+#include "Engine.h"
+
+
 #include<SDL.h>
 #include<SDL_image.h>
 #include<SDL_mixer.h>
@@ -9,8 +14,9 @@
 class Collider
 {
     public:
-        inline SDL_Rect Get() {return m_Box;}
-        inline void SetBuffer(int x, int y, int w, int h) {m_Buffer = {x, y, w, h};} //xoa/thay doi phan space thua cua player
+        inline SDL_Rect Get() {return m_Box;} //tra ve box hcn bao quanh player -> dung de check va cham voi map/object...
+        inline void SetBuffer(int x, int y, int w, int h) {m_Buffer = {x, y, w, h};}
+        //xoa/thay doi phan space thua(khoang trong) cua object nhan vat tuy vao animation
 
         void Set(int x, int y, int w, int h) {
             m_Box = {
@@ -18,7 +24,17 @@ class Collider
                 y - m_Buffer.y,
                 w - m_Buffer.w,
                 h - m_Buffer.h
-            };
+            }; //box bao quanh nv khi da bo di phan space thua
+        }
+
+        bool CollideWithMap() {
+            return CollisionHandler::GetInstance()->MapCollision(m_Box);
+        }
+
+        void Draw() {
+            Vector2D cam = Camera::GetInstance()->GetPosition();
+            SDL_Rect box = {(int)(m_Box.x - cam.X), (int)(m_Box.y - cam.Y), m_Box.w, m_Box.h};
+            SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box);
         }
 
 	private:

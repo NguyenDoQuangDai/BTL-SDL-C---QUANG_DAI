@@ -1,8 +1,8 @@
 #ifndef WARRIOR_H
 #define WARRIOR_H
 
-#define JUMP_TIME 10.0f
-#define JUMP_FORCE 7.0f
+#define JUMP_TIME 14.0f
+#define JUMP_FORCE 6.2f
 #define RUN_FORCE 4.0f
 #define ATTACK_TIME 25.0f
 
@@ -11,34 +11,36 @@
 #include "RigidBody.h"
 #include "Vector2D.h"
 #include "Collider.h"
+#include "SpriteAnimation.h"
 
 
 class Warrior: public Character
 {
     public:
-        Warrior(Properties* props);
+        Warrior(Properties* props); //dinh nghia ctr con(define constructor)
 
         virtual void Draw();//
-        virtual void Update(float dt);//
+        virtual void Update(float dt);//thua ke IObject
         virtual void Clean();//
 
     private:
         void AnimationState();
 
     private:
+        //Is... = true -> set animation thanh ... animation
         bool m_IsJumping;
         bool m_IsRunning;
         bool m_IsFalling;
-        bool m_IsGrounded;  //nv cham dat -> moi duoc nhay
+        bool m_IsGrounded;  //nv dang cham dat -> moi duoc nhay
         bool m_IsAttacking;
         bool m_IsCrouching;
 
-        float m_JumpTime;   //tg nhay len
-        float m_JumpForce;  //luc nhay
-        float m_AttackTime;
+        float m_JumpTime;   //tg nhan vat co the nhay len
+        float m_JumpForce;  //luc nhay len nv
+        float m_AttackTime; //tg tan cong
 
         Collider* m_Collider;
-        Animation* m_Animation;
+        SpriteAnimation* m_SpriteAnimation;
         RigidBody* m_RigidBody;
         Vector2D m_LastSafePosition;
 };

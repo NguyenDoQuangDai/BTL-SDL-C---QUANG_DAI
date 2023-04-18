@@ -12,15 +12,17 @@
 class Animation
 {
     public:
-        Animation(){};
+        Animation(bool repeat = true): m_Repeat(repeat) {m_IsEnded = false;}
+        //khien animation repeat mai mai neu IsEnded != true
 
-        void Update();
-        void Draw(float x, float y, int spritWidth, int spritHeight, SDL_RendererFlip flip = SDL_FLIP_NONE);
-        void SetProps(std::string textureID, int spritRow, int frameCount, int speed);
+        virtual void Update(float dt) = 0;
+        inline bool IsEnded() {return m_IsEnded;} //tra ve value IsEnded
 
-    private:
-        int m_SpriteRow, m_CurrentFrame, m_Speed, m_FrameCount;
-        std::string m_TextureID;
+    protected:
+        bool m_Repeat;
+        bool m_IsEnded;
+        int m_CurrentFrame;
+
 };
 
 #endif // ANIMATION_H

@@ -27,6 +27,7 @@
 					<Add directory="src/Vendor/Tinyxml" />
 					<Add directory="src/Camera" />
 					<Add directory="src/Collision" />
+					<Add directory="src/Factory" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -49,6 +50,7 @@
 					<Add directory="src/Map" />
 					<Add directory="src/Camera" />
 					<Add directory="src/Collision" />
+					<Add directory="src/Factory" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -60,11 +62,16 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Animation/Animation.cpp" />
 		<Unit filename="src/Animation/Animation.h" />
+		<Unit filename="src/Animation/SeqAnimation.cpp" />
+		<Unit filename="src/Animation/SeqAnimation.h" />
+		<Unit filename="src/Animation/SpriteAnimation.cpp" />
+		<Unit filename="src/Animation/SpriteAnimation.h" />
 		<Unit filename="src/Camera/Camera.cpp" />
 		<Unit filename="src/Camera/Camera.h" />
 		<Unit filename="src/Characters/Character.h" />
+		<Unit filename="src/Characters/Enemy.cpp" />
+		<Unit filename="src/Characters/Enemy.h" />
 		<Unit filename="src/Characters/Warrior.cpp" />
 		<Unit filename="src/Characters/Warrior.h" />
 		<Unit filename="src/Collision/CollisionHandler.cpp" />

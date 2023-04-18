@@ -8,20 +8,22 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1679670568 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\main.cpp
+1681206418 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\main.cpp
 	"Timer.h"
 	"Engine.h"
 
-1680026526 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.h
+1681736332 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.h
 	"GameMap.h"
+	"GameObject.h"
 	<iostream>
 	<string>
+	<vector>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1680626129 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.cpp
+1681830682 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -31,14 +33,11 @@
 	"Timer.h"
 	"MapParser.h"
 	"Camera.h"
+	"Enemy.h"
 	<iostream>
 	<string>
-	<SDL.h>
-	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
-1680625796 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.h
+1681718142 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.h
 	<iostream>
 	<string>
 	<map>
@@ -47,7 +46,7 @@
 	"SDL_mixer.h"
 	"SDL_ttf.h"
 
-1680626006 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.cpp
+1681826255 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\graphics\texturemanager.cpp
 	"TextureManager.h"
 	"Engine.h"
 	"Camera.h"
@@ -59,7 +58,7 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679461813 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\vector2d.h
+1681579400 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\vector2d.h
 	<iostream>
 	<string>
 	<SDL.h>
@@ -67,10 +66,10 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679893108 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\transform.h
+1680953460 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\transform.h
 	"Vector2D.h"
 
-1680624753 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.cpp
+1681829616 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
 	"Input.h"
@@ -82,19 +81,20 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1680539511 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.h
+1681728519 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\warrior.h
 	"Character.h"
 	"Animation.h"
 	"RigidBody.h"
 	"Vector2D.h"
 	"Collider.h"
+	"SpriteAnimation.h"
 
-1679539911 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\character.h
+1681040197 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\character.h
 	"GameObject.h"
 	<iostream>
 	<string>
 
-1680019216 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\object\gameobject.h
+1681584318 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\object\gameobject.h
 	"IObject.h"
 	"Transform.h"
 	"Point.h"
@@ -105,13 +105,13 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679503759 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\object\iobject.h
+1681031467 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\object\iobject.h
 
 1680508799 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\animation\animation.cpp
 	"Animation.h"
 	"TextureManager.h"
 
-1680446466 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\animation\animation.h
+1681724308 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\animation\animation.h
 	<iostream>
 	<string>
 	<SDL.h>
@@ -119,7 +119,7 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1680246960 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\rigidbody.h
+1681662054 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\rigidbody.h
 	"Vector2D.h"
 	<iostream>
 	<string>
@@ -128,36 +128,36 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1680511205 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\inputs\input.cpp
+1681661575 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\inputs\input.cpp
 	"Input.h"
 	"Engine.h"
 
-1680510508 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\inputs\input.h
+1681661356 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\inputs\input.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1679671609 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\timer\timer.h
+1681808696 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\timer\timer.h
 
-1679670568 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\timer\timer.cpp
+1681207305 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\timer\timer.cpp
 	"Timer.h"
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1680184434 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\tilelayer.cpp
+1681562235 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\tilelayer.cpp
 	"TileLayer.h"
 	"TextureManager.h"
 	"Camera.h"
 
-1680184049 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\tilelayer.h
+1681408562 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\tilelayer.h
 	"Layer.h"
 	<vector>
 	<string>
 
-1679676842 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\layer.h
+1681231651 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\layer.h
 
 1305426297 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\vendor\tinyxml\tinystr.cpp
 	"tinystr.h"
@@ -192,17 +192,18 @@
 	"tinyxml.h"
 	<windows.h>
 
-1680247928 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.cpp
+1681727944 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.cpp
 	"MapParser.h"
+	<iostream>
 
-1680184139 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.h
+1681578394 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\mapparser.h
 	"GameMap.h"
 	"TileLayer.h"
 	"tinyxml.h"
 	<string>
 	<map>
 
-1680150057 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\gamemap.h
+1681488960 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\map\gamemap.h
 	"Layer.h"
 	<vector>
 
@@ -213,28 +214,31 @@
 	<crtdbg.h>
 	"tinyxml.h"
 
-1680248720 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\camera\camera.cpp
+1681583598 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\camera\camera.cpp
 	"Camera.h"
 
-1680185245 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\camera\camera.h
+1681582803 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\camera\camera.h
 	"SDL.h"
 	"Point.h"
 	"Vector2D.h"
 	"Engine.h"
 
-1680185245 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\point.h
+1681825320 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\point.h
 	<iostream>
 
-1680150709 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\collider.h
+1681808250 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\physics\collider.h
+	"CollisionHandler.h"
+	"Camera.h"
+	"Engine.h"
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1680189701 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\collision\collisionhandler.cpp
+1681829161 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\collision\collisionhandler.cpp
 	"CollisionHandler.h"
 
-1680109060 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\collision\collisionhandler.h
+1681629106 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\collision\collisionhandler.h
 	"TileLayer.h"
 	"GameMap.h"
 	"Engine.h"
@@ -243,4 +247,58 @@
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
+
+1681726477 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\animation\spriteanimation.cpp
+	"SpriteAnimation.h"
+	"TextureManager.h"
+
+1681725027 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\animation\spriteanimation.h
+	"Animation.h"
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1681728209 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\animation\seqanimation.cpp
+	"SeqAnimation.h"
+	"TextureManager.h"
+	"tinyxml.h"
+	<iostream>
+
+1681725830 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\animation\seqanimation.h
+	"Animation.h"
+	<map>
+	<string>
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1681728694 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\enemy.h
+	"Character.h"
+	"RigidBody.h"
+	"Collider.h"
+	"SeqAnimation.h"
+	"SpriteAnimation.h"
+	"Vector2D.h"
+
+1681830934 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\characters\enemy.cpp
+	"Enemy.h"
+	"CollisionHandler.h"
+	<iostream>
+
+1681807525 c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\factory\objectfactory.h
+	"GameObject.h"
+	<map>
+	<string>
+	<memory>
+	<functional>
+
+1681807378 source:c:\apps\new folder\btl-sdl-c---quang_dai\testsdl\src\factory\objectfactory.cpp
+	"ObjectFactory.h"
+	"Enemy.h"
+	"Warrior.h"
 

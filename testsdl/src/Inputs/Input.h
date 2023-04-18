@@ -16,17 +16,17 @@ class Input
             //check neu s_Instance la con tro null
         }
 
-        void Listen();
-        bool GetKeyDown(SDL_Scancode key);
+        void Listen(); //xem co event xay ra ko
+        bool GetKeyDown(SDL_Scancode key); //ktra co phai nut key dc nhan
 
-        int GetAxisKey(Axis axis);
+        int GetAxisKey(Axis axis); //nhan event nhan nut di chuyen ngang doc
 
     private:
         Input();
-        void KeyUp();
-        void KeyDown();
+        void KeyUp(); //nha phim
+        void KeyDown(); //nhan nut phim
 
-        const Uint8* m_KeyStates;
+        const Uint8* m_KeyStates; //luu trang thai key
         static Input* s_Instance;
 };
 
