@@ -1,4 +1,5 @@
 #include "CollisionHandler.h"
+#include "iostream"
 
 CollisionHandler* CollisionHandler::s_Instance = nullptr;
 
@@ -35,9 +36,8 @@ bool CollisionHandler::MapCollision(SDL_Rect a) //check neu object chong de len 
     if (right_tile > ColCount) {right_tile = ColCount;}
 
     if (top_tile < 0) {top_tile = 0;}
-    if (bottom_tile > RowCount) {bottom_tile = RowCount;}
+    if (bottom_tile > RowCount-1) {bottom_tile = RowCount-1;}
     //check dang trc, sau, tren, duoi  tile ko vuot qua (0,0) va (ColCount,RowCount)
-    //bo di cung dc vi test chua thay loi nao ca
 
     for (int i = left_tile; i <= right_tile; i++) {
         for (int j = top_tile; j <= bottom_tile; j++) {

@@ -1,7 +1,7 @@
 #ifndef TEXTUREMANAGER_H
 #define TEXTUREMANAGER_H
 
-#include <iostream>
+#include<iostream>
 #include<string>
 #include<map>
 

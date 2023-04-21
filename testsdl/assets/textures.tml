@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <textures>
     <texture id="background" source="assets/Image/Doge.png"/>
+    <texture id="GameOver" source="assets/Image/GameOver3.png"/>
+    <texture id="Check" source="assets/Image/DotCarbon1.png"/>
+    <texture id="3HPoint" source="assets/Image/3HP.png"/>
+    <texture id="2HPoint" source="assets/Image/2HP.png"/>
+    <texture id="1HPoint" source="assets/Image/1HP.png"/>
+    <texture id="0HPoint" source="assets/Image/0HP.png"/>
+
+    <texture id="0" source="assets/Image/GamePoint/0.png"/>
+    <texture id="1" source="assets/Image/GamePoint/1.png"/>
+    <texture id="2" source="assets/Image/GamePoint/2.png"/>
+    <texture id="3" source="assets/Image/GamePoint/3.png"/>
+    <texture id="4" source="assets/Image/GamePoint/4.png"/>
+    <texture id="5" source="assets/Image/GamePoint/5.png"/>
+    <texture id="6" source="assets/Image/GamePoint/6.png"/>
+    <texture id="7" source="assets/Image/GamePoint/7.png"/>
+    <texture id="8" source="assets/Image/GamePoint/8.png"/>
+    <texture id="9" source="assets/Image/GamePoint/9.png"/>
 
     <texture id="player_run" source="assets/Run.png"/>
     <texture id="player_idle" source="assets/Idle.png"/>

@@ -12,7 +12,7 @@
 class MapParser
 {
     public:
-        bool Load(); //load map
+        bool Load(std::string LevelX); //load map
         void Clean();
 
         inline GameMap* GetMap(std::string id) {return m_MapDict[id];}

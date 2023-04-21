@@ -3,9 +3,11 @@
 
 MapParser* MapParser::s_Instance = nullptr; //khoi tao instance, gan nullptr cho bien con tro static
 
-bool MapParser::Load()
-{
-	return Parse("Level1", "assets/maps/map3.xml"); //map3 -> id level1 se duoc them vao ham Parse trong MapDictionary (xem header file)
+bool MapParser::Load(std::string LevelX)
+{   if(LevelX == "Level1")
+        return Parse("Level1", "assets/maps/map3.xml"); //map3 -> id level1 se duoc them vao ham Parse trong MapDictionary (xem header file)
+    else if(LevelX == "Level2")
+        return Parse("Level2", "assets/maps/map2-extended.xml");
 }
 
 bool MapParser::Parse(std::string id, std::string source) //ptich tileset
@@ -118,4 +120,6 @@ void MapParser::Clean()
 
 	m_MapDict.clear();
     // clear:xoa moi gia tri value va bien size ve 0
+
+    std::cout << "Map cleared!" << std::endl;
 }

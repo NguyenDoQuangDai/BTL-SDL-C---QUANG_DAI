@@ -10,7 +10,12 @@
 #include<SDL_image.h>
 #include<SDL_mixer.h>
 #include<SDL_ttf.h>
+/*
+Warrior::Warrior()
+{
 
+}
+*/
 Warrior::Warrior(Properties* props): Character(props)
 {
     m_IsRunning = false;
@@ -44,7 +49,7 @@ void Warrior::Draw()
     box.x -= cam.X;
     box.y -= cam.Y;
     //dieu chinh vi tri cua box theo camera do nhan vat ko vuot qua nua man hinh tru khi het map
-    SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box); //draw box xong chinh lai sao cho vua nhan vat
+    //SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box); //draw box xong chinh lai sao cho vua nhan vat
 }
 
 void Warrior::Update(float dt)
@@ -54,17 +59,21 @@ void Warrior::Update(float dt)
     m_RigidBody->UnSetForce(); //dam bao ko con luc tac dung khi nv ket thuc hanh dong,  neu bo di nv se chuyen dong mai mai
 
 
+
     //di chuyen sang ngang
-    if(Input::GetInstance()->GetAxisKey(HORIZONTAL) == FORWARD) { //neu horizontal trong input return 1 = FORWARD(RigidBody.h) ->Forward
+    if(Input::GetInstance()->GetAxisKey(HORIZONTAL) == FORWARD  && m_Origin->Y < 700) {
+            //neu horizontal trong input return 1 = FORWARD(RigidBody.h) ->Forward
         m_RigidBody->ApplyForceX(FORWARD * RUN_FORCE);
         m_Flip = SDL_FLIP_NONE;
         m_IsRunning = true;
     }
-    if(Input::GetInstance()->GetAxisKey(HORIZONTAL) == BACKWARD) { //neu horizontal trong input return -1  = BACKWARD ->Backward
+    if(Input::GetInstance()->GetAxisKey(HORIZONTAL) == BACKWARD && m_Origin->Y < 700) {
+            //neu horizontal trong input return -1  = BACKWARD ->Backward
         m_RigidBody->ApplyForceX(BACKWARD * RUN_FORCE);
         m_Flip = SDL_FLIP_HORIZONTAL;
         m_IsRunning = true;
     }
+
 
 
     //ngoi
@@ -72,6 +81,7 @@ void Warrior::Update(float dt)
         m_RigidBody->UnSetForce();
         m_IsCrouching = true;
     }
+
 
 
     // Event nhay
@@ -95,6 +105,7 @@ void Warrior::Update(float dt)
 	}
 
 
+
     //Roi
     if(m_RigidBody->Velocity().Y > 0 && !m_IsGrounded) { //neu v>0 va nv ko o tren mat dat -> dang roi true
         m_IsFalling = true;
@@ -102,10 +113,27 @@ void Warrior::Update(float dt)
     else {m_IsFalling = false;}
 
 
+
     // Event tancong
     if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_K)) {
         //m_RigidBody->UnSetForce(); //->Neu bo di thi vua chay vua tan cong duoc
         m_IsAttacking = true;
+        if(m_CheckB == true && m_Origin->X >= 2820 && m_Origin->X <= 2940 && m_Origin->Y >= 300) {
+            m_CheckB = false;
+            m_CheckA = true;
+            m_GamePoint++;
+            Engine::GetInstance()->Check();
+            Engine::GetInstance()->StatusUp();
+            std::cout << "B checked! Gamepoint la: " << m_GamePoint << std::endl;
+        }
+        else if(m_CheckA == true && m_Origin->X >= 330 && m_Origin->X <= 530 && m_Origin->Y >= 300) {
+            m_CheckA = false;
+            m_CheckB = true;
+            m_GamePoint++;
+            Engine::GetInstance()->Check();
+            Engine::GetInstance()->StatusUp();
+            std::cout << "A checked! Gamepoint la: " << m_GamePoint << std::endl;
+        }
     }
     // Tg event tancong (tuong tu thuc hien event nhay)
     if(m_IsAttacking && m_AttackTime > 0) {
@@ -115,6 +143,8 @@ void Warrior::Update(float dt)
         m_IsAttacking = false;
         m_AttackTime = ATTACK_TIME;
     }
+
+
 
 	//di chuyen tren truc x
 	m_RigidBody->Update(dt); //update RigidBody theo dt
@@ -148,6 +178,36 @@ void Warrior::Update(float dt)
     m_Origin->Y = m_Transform->Y + m_Height/2;
     //update gia tri vi tri cua origin vao chinh giua player cho camera di chuyen theo
 
+
+    if(m_Origin->Y >= 1100) {
+            life--;
+            Engine::GetInstance()->StatusDown();
+            if(life <= 0) {
+                Engine::GetInstance()->GameOver();
+                m_RigidBody->UnSetForce();
+                if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_K)) {
+                    life = 3;
+                    m_Transform->X = 280;
+                    m_Transform->Y = 150;
+                }
+            }
+            else {
+                std::cout << "Your Life = " << life << std::endl;
+                std::cout << "You died! Gamepoint la: " << m_GamePoint << std::endl;
+                if(m_CheckA == false) {
+                    m_Transform->X = 280;
+                    m_Transform->Y = 150;
+                }
+                else {
+                    m_Transform->X = 2750;
+                    m_Transform->Y = 150;
+            }
+        }
+    }
+
+//    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
+
+
     AnimationState();
     m_SpriteAnimation->Update(dt); //update animation theo dt
 }
@@ -163,12 +223,12 @@ void Warrior::AnimationState()
     if(m_IsFalling) {m_SpriteAnimation->SetProps("player_fall", 1, 2, 300);}
     if(m_IsAttacking) {
             m_SpriteAnimation->SetProps("player_attack", 1, 6, 70);
-            if(Input::GetInstance()->GetAxisKey(HORIZONTAL) == FORWARD)
-                m_Collider->SetBuffer(-105, -68, 0, -6);
+            if(m_Flip == SDL_FLIP_NONE)
+                m_Collider->SetBuffer(-105, -68, 0, -6); //dich chuyen vi tri cua box theo nhan vat khi attack
 
-            else if(Input::GetInstance()->GetAxisKey(HORIZONTAL) == BACKWARD)
-                m_Collider->SetBuffer(-85, -68, 0, -6);
-
+            else {
+                m_Collider->SetBuffer(-75, -68, 0, -6);
+            }
     }
     else {
         m_Collider->SetBuffer(-90, -68, 0, -6);
@@ -179,4 +239,6 @@ void Warrior::AnimationState()
 void Warrior::Clean()
 {
     TextureManager::GetInstance()->Drop(m_TextureID);
+
+    std::cout << "Warrior cleaned!" << std::endl;
 }
