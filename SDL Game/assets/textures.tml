@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<textures>
+    <texture id="background" source="assets/Image/Doge.png"/>
+    <texture id="back" source="assets/Image/Back.jpg"/>
+    <texture id="GameOver" source="assets/Image/GameOver3.png"/>
+    <texture id="Check" source="assets/Image/DotCarbon1.png"/>
+    <texture id="3HPoint" source="assets/Image/3HP.png"/>
+    <texture id="2HPoint" source="assets/Image/2HP.png"/>
+    <texture id="1HPoint" source="assets/Image/1HP.png"/>
+    <texture id="0HPoint" source="assets/Image/0HP.png"/>
+    <texture id="Coin" source="assets/Image/Coin.png"/>
+
+    <texture id="0" source="assets/Image/GamePoint/0.png"/>
+    <texture id="1" source="assets/Image/GamePoint/1.png"/>
+    <texture id="2" source="assets/Image/GamePoint/2.png"/>
+    <texture id="3" source="assets/Image/GamePoint/3.png"/>
+    <texture id="4" source="assets/Image/GamePoint/4.png"/>
+    <texture id="5" source="assets/Image/GamePoint/5.png"/>
+    <texture id="6" source="assets/Image/GamePoint/6.png"/>
+    <texture id="7" source="assets/Image/GamePoint/7.png"/>
+    <texture id="8" source="assets/Image/GamePoint/8.png"/>
+    <texture id="9" source="assets/Image/GamePoint/9.png"/>
+
+    <texture id="player_run" source="assets/Run.png"/>
+    <texture id="player_idle" source="assets/Idle.png"/>
+    <texture id="player_jump" source="assets/Jump.png"/>
+    <texture id="player_fall" source="assets/Fall.png"/>
+    <texture id="player_crouch" source="assets/Crouch.png"/>
+    <texture id="player_attack" source="assets/Attack.png"/>
+
+
+    <texture id="idle-1" source="assets/Enemy/1 Enemy/PNG/idle-1.png"/>
+    <texture id="idle-2" source="assets/Enemy/1 Enemy/PNG/idle-1.png"/>
+    <texture id="idle-3" source="assets/Enemy/1 Enemy/PNG/idle-1.png"/>
+    <texture id="idle-4" source="assets/Enemy/1 Enemy/PNG/idle-1.png"/>
+
+    <texture id="attack-A1" source="assets/Enemy/1 Enemy/PNG/attack-A1.png"/>
+    <texture id="attack-A2" source="assets/Enemy/1 Enemy/PNG/attack-A2.png"/>
+    <texture id="attack-A3" source="assets/Enemy/1 Enemy/PNG/attack-A3.png"/>
+    <texture id="attack-A4" source="assets/Enemy/1 Enemy/PNG/attack-A4.png"/>
+    <texture id="attack-A5" source="assets/Enemy/1 Enemy/PNG/attack-A5.png"/>
+    <texture id="attack-A6" source="assets/Enemy/1 Enemy/PNG/attack-A6.png"/>
+    <texture id="attack-A7" source="assets/Enemy/1 Enemy/PNG/attack-A7.png"/>
+    <texture id="attack-A8" source="assets/Enemy/1 Enemy/PNG/attack-A8.png"/>
+
+    <texture id="dead-1" source="assets/Enemy/1 Enemy/PNG/dead-1.png"/>
+    <texture id="dead-2" source="assets/Enemy/1 Enemy/PNG/dead-2.png"/>
+    <texture id="dead-3" source="assets/Enemy/1 Enemy/PNG/dead-3.png"/>
+    <texture id="dead-4" source="assets/Enemy/1 Enemy/PNG/dead-4.png"/>
+
+    <texture id="jump-1" source="assets/Enemy/1 Enemy/PNG/jump-1.png"/>
+    <texture id="jump-2" source="assets/Enemy/1 Enemy/PNG/jump-2.png"/>
+    <texture id="jump-3" source="assets/Enemy/1 Enemy/PNG/jump-3.png"/>
+    <texture id="jump-4" source="assets/Enemy/1 Enemy/PNG/jump-4.png"/>
+    <texture id="jump-5" source="assets/Enemy/1 Enemy/PNG/jump-5.png"/>
+    <texture id="jump-6" source="assets/Enemy/1 Enemy/PNG/jump-6.png"/>
+
+    <texture id="walk-1" source="assets/Enemy/1 Enemy/PNG/walk-1.png"/>
+    <texture id="walk-2" source="assets/Enemy/1 Enemy/PNG/walk-2.png"/>
+    <texture id="walk-3" source="assets/Enemy/1 Enemy/PNG/walk-3.png"/>
+    <texture id="walk-4" source="assets/Enemy/1 Enemy/PNG/walk-4.png"/>
+    <texture id="walk-5" source="assets/Enemy/1 Enemy/PNG/walk-5.png"/>
+    <texture id="walk-6" source="assets/Enemy/1 Enemy/PNG/walk-6.png"/>
+
+    <texture id="hit-1" source="assets/Enemy/1 Enemy/PNG/hit-1.png"/>
+    <texture id="hit-2" source="assets/Enemy/1 Enemy/PNG/hit-2.png"/>
+    <texture id="hit-3" source="assets/Enemy/1 Enemy/PNG/hit-3.png"/>
+
+</textures>
