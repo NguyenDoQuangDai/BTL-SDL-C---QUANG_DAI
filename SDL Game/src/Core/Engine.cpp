@@ -16,7 +16,7 @@ Engine* Engine::s_Instance = nullptr;
 Warrior* player = nullptr; //tao object
 //gan nullptr cho bien con tro static
 
-bool Engine::Init(std::string LevelX)
+bool Engine::Init()
 {
     if(SDL_Init(SDL_INIT_VIDEO) != 0 && IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) != 0) { //khoi tao he thong con su kien vs tai ho tro dinh dang anh png,jpg
         SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
@@ -38,10 +38,10 @@ bool Engine::Init(std::string LevelX)
         return false; //check xem tao renderer thanh cong khong
     }
 
-    if (!MapParser::GetInstance()->Load(LevelX)) {
+    if (!MapParser::GetInstance()->Load("Level1")) {
 		std::cout << "Failed to Load map!" << std::endl; //ktra load map thanh cong
 	}
-    m_LevelMap = MapParser::GetInstance()->GetMap(LevelX); //lay map
+    m_LevelMap = MapParser::GetInstance()->GetMap("Level1"); //lay map
 
     TextureManager::GetInstance()->ParseTextures("assets/textures.tml");
     //ham phan tich parse texture va load cac image voi "id" va "path" trong file
@@ -55,13 +55,17 @@ bool Engine::Init(std::string LevelX)
 
     std::cout << "Engine Init sac set phu li!" << std::endl;
 
-    int m_Point = 0;
-    int m_HPoint = 3;
-    int m_Num[5] = {};
-    int m_NumCount = 1;
-    int m_const = m_Point;
+    m_Point = 0;
+    m_HPoint = 3;
+    m_Num[5] = {};
+    m_NumCount = 1;
+    m_const = m_Point;
 
-    bool m_FirstTime = true;
+    m_Menu = true;
+    m_GamePause = false;
+    m_FirstTime = true;
+    m_Button0 = true, m_Button1 = false, m_Button2 = false;
+
 
     SDL_Init(SDL_INIT_AUDIO);
 
@@ -70,7 +74,6 @@ bool Engine::Init(std::string LevelX)
         return false;
     }
 
-    Mix_MasterVolume(12);
     PlaySound("Music");
 
     return m_IsRunning = true;
@@ -78,13 +81,112 @@ bool Engine::Init(std::string LevelX)
 
 void Engine::GameOver()
 {
-        m_GameOver = true;
-        if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_K)) {
-            m_GameOver = false;
-            m_HPoint  = 3;
-            m_Point = 0;
+    m_GameOver = true;
+    m_Checker = false;
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_K)) {
+        m_GameOver = false;
+        m_HPoint  = 3;
+        m_Point = 0;
+    }
+}
+
+void Engine::Menu()
+{
+    //draw menu
+    if(m_Menu == true) {
+        TextureManager::GetInstance()->Draw("backmenu", 0, 0, 6000, 2700, 0.29, 0.29, 0);
+        TextureManager::GetInstance()->Draw("name", -15, 20, 360, 240, 1.1, 1.1, 0);
+//        TextureManager::GetInstance()->Draw("shade", 400, 300, 348, 241, 1, 1, 0);
+
+        if(m_Button0) TextureManager::GetInstance()->Draw("button2", 25, 300, 3000, 700, 0.1, 0.11, 0);
+        else TextureManager::GetInstance()->Draw("button0", 25, 300, 3000, 700, 0.1, 0.11, 0);
+
+        if(m_Button1) TextureManager::GetInstance()->Draw("button2", 25, 450, 3000, 700, 0.1, 0.11, 0);
+        else TextureManager::GetInstance()->Draw("button0", 25, 450, 3000, 700, 0.1, 0.11, 0);
+
+        if(m_Button2) TextureManager::GetInstance()->Draw("button2", 25, 600, 3000, 700, 0.1, 0.11, 0);
+        else TextureManager::GetInstance()->Draw("button0", 25, 600, 3000, 700, 0.1, 0.11, 0);
+
+        TextureManager::GetInstance()->Draw("playword", 88, 275, 1200, 700, 0.15, 0.16, 0);
+        TextureManager::GetInstance()->Draw("guideword", 70, 428, 1200, 700, 0.15, 0.16, 0);
+        TextureManager::GetInstance()->Draw("quitword", 80, 580, 1200, 700, 0.15, 0.16, 0);
+
+    //MenuFuction
+        //hien thi nut dang duoc chon
+        if(m_Button0) {
+            if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_DOWN)) {
+                PlaySound("Interface");
+                m_Button1 = true;
+                m_Button0 = false;
+                m_Button2 = false;
+                SDL_Delay(150);
+            }
+            else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_UP)) {
+                PlaySound("Interface");
+                SDL_Delay(150);
+            }
         }
-        m_Checker = false;
+        else if(m_Button1) {
+            if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_DOWN)) {
+                PlaySound("Interface");
+                m_Button2 = true;
+                m_Button0 = false;
+                m_Button1 = false;
+                SDL_Delay(150);
+            }
+            else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_UP)) {
+                PlaySound("Interface");
+                m_Button0 = true;
+                m_Button1 = false;
+                m_Button2 = false;
+                SDL_Delay(150);
+            }
+        }
+        else if(m_Button2) {
+            if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_UP)) {
+                PlaySound("Interface");
+                m_Button1 = true;
+                m_Button0 = false;
+                m_Button2 = false;
+                SDL_Delay(150);
+            }
+            else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_DOWN)) {
+                PlaySound("Interface");
+                SDL_Delay(150);
+            }
+        }
+
+
+        //enter button
+        if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RETURN)) {
+            if(m_Button0){
+                m_Menu = false;
+                PlaySound("Choose");
+                m_Button0 = true;
+                m_Button1 = false;
+                m_Button2 = false;
+            }
+            else if(m_Button1) {
+                m_Board  = !m_Board;
+                PlaySound("Interface");
+                SDL_Delay(150);
+            }
+            else {Quit();}
+        }
+        if(m_Board) {
+            TextureManager::GetInstance()->Draw("board", 230, 130, 1200, 632, 0.85, 0.85, 0);
+            TextureManager::GetInstance()->Draw("guide", 480, 90, 606, 660, 0.86, 0.86, 0);
+        }
+    }
+    else {m_Board  = false;}
+}
+
+void Engine::GamePause()
+{
+    if(m_Menu == false && m_GameOver  == false) {
+        m_GamePause = !m_GamePause;
+        SDL_Delay(150);
+    }
 }
 
 void Engine::Check()
@@ -116,6 +218,7 @@ void Engine::GamePoint()
 
         if(m_const >= 10 && m_const <= 99) {m_NumCount = 2;}
         else if(m_const >= 100 && m_const <= 999) {m_NumCount = 3;}
+        else if(m_const >= 1000 && m_const <= 9999) {m_NumCount = 4;}
         else {m_NumCount = 1;}
 
         m_const = m_Point;
@@ -186,56 +289,128 @@ void Engine::DrawGamePoint()
 
 void Engine::Render()
 {
-    SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255); //dat mau cho hoat dong ve (124, 218, 254)-xanh da troi nhat
+    SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255); //dat mau cho hoat dong ve (124, 218, 254)-xanh da troi dam
     SDL_RenderClear(m_Renderer); //xoa mua tieu render hien tai bang mau ve truoc khi present
-    m_LevelMap->Render();//render map
-    TextureManager::GetInstance()->Draw("back", 0, 0, 8000, 2462, 0.2373, 0.2373, 0.35);
-    //draw anh backgound da load voi kich co x0.3 va toc do ve phia sau = 0,3 nhan vat
-    m_LevelMap->Render();//render map
-
-    GamePoint();
-
-    if(m_Checker == true) {
-        TextureManager::GetInstance()->Draw("Coin", 412, 306, 5000, 5000, 0.008, 0.008, 1);
-        TextureManager::GetInstance()->Draw("Check", 2730, 348, 800, 800, 0.017, 0.017, 1);
-        TextureManager::GetInstance()->Draw("Check", 1352, 464, 800, 800, 0.0135, 0.0135, 1);
+/*
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RETURN)) {
+        m_GameOver = false;
+        m_HPoint  = 3;
+        m_Point = 0;
+        m_Menu = true;
     }
-    else {
-        TextureManager::GetInstance()->Draw("Coin", 2891, 230, 5000, 5000, 0.008, 0.008, 1);
-        TextureManager::GetInstance()->Draw("Check", 490, 379, 800, 800, 0.017, 0.017, 1);
-        TextureManager::GetInstance()->Draw("Check", 1357, 480, 800, 800, 0.0135, 0.0135, 1);
+*/
+    if(m_Menu == false) {
+        m_LevelMap->Render();//render map
+        TextureManager::GetInstance()->Draw("back", 0, 0, 8000, 2462, 0.2373, 0.2373, 0.35);
+        //draw anh backgound da load voi kich co x0.3 va toc do ve phia sau = 0,3 nhan vat
+        m_LevelMap->Render();//render map
+
+        GamePoint();
+
+        if(m_Checker == true) {
+            TextureManager::GetInstance()->Draw("Coin", 412, 306, 5000, 5000, 0.008, 0.008, 1);
+            TextureManager::GetInstance()->Draw("Check", 2730, 348, 800, 800, 0.017, 0.017, 1);
+            TextureManager::GetInstance()->Draw("Check", 1352, 464, 800, 800, 0.0135, 0.0135, 1);
+        }
+        else {
+            TextureManager::GetInstance()->Draw("Coin", 2891, 230, 5000, 5000, 0.008, 0.008, 1);
+            TextureManager::GetInstance()->Draw("Check", 490, 379, 800, 800, 0.017, 0.017, 1);
+            TextureManager::GetInstance()->Draw("Check", 1357, 480, 800, 800, 0.0135, 0.0135, 1);
+        }
+
+        for(unsigned int i=0; i != m_GameObjects.size(); i++) {
+            m_GameObjects[i]->Draw(); // vong lap ve moi objects len man hinh screen
+        }
+
+
+        switch(m_HPoint) {
+        case 3:
+            TextureManager::GetInstance()->Draw("3HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
+            break;
+        case 2:
+            TextureManager::GetInstance()->Draw("2HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
+            break;
+        case 1:
+            TextureManager::GetInstance()->Draw("1HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
+            break;
+        default:
+            TextureManager::GetInstance()->Draw("0HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
+            GameOver();
+            break;
+        }
+
+        DrawGamePoint();
     }
 
-    for(unsigned int i=0; i != m_GameObjects.size(); i++) {
-        m_GameObjects[i]->Draw(); // vong lap ve moi objects len man hinh screen
+    Menu();
+    if(m_GamePause) {
+        //ve gamepause
+        TextureManager::GetInstance()->Draw("pause", 100, 100, 1200, 710, 0.85, 0.85, 0);
+        TextureManager::GetInstance()->Draw("button1", 465, 30, 3000, 700, 0.1, 0.11, 0);
+        TextureManager::GetInstance()->Draw("pauseword", 515, 5, 1200, 700, 0.18, 0.2, 0);
+        TextureManager::GetInstance()->Draw("guide", 350, 100, 606, 660, 0.86, 0.86, 0);
+
+        if(m_Button0) TextureManager::GetInstance()->Draw("button2", 250, 700, 3000, 700, 0.1, 0.11, 0);
+        else TextureManager::GetInstance()->Draw("button0", 250, 700, 3000, 700, 0.1, 0.11, 0);
+
+        if(m_Button1) TextureManager::GetInstance()->Draw("button2", 673, 700, 3000, 700, 0.1, 0.11, 0);
+        else TextureManager::GetInstance()->Draw("button0", 673, 700, 3000, 700, 0.1, 0.11, 0);
+
+        TextureManager::GetInstance()->Draw("continueword", 298, 683, 1200, 700, 0.17, 0.18, 0);
+        TextureManager::GetInstance()->Draw("quitword", 730, 685, 1200, 700, 0.15, 0.16, 0);
+
+        //hien thi mau nut dang chon
+        if(m_Button0) {
+            if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RIGHT)) {
+                PlaySound("Interface");
+                m_Button1 = true;
+                m_Button0 = false;
+                SDL_Delay(150);
+            }
+            else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_LEFT)) {
+                PlaySound("Interface");
+                SDL_Delay(150);
+            }
+        }
+        else if(m_Button1) {
+            if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_LEFT)) {
+                PlaySound("Interface");
+                m_Button0 = true;
+                m_Button1 = false;
+                SDL_Delay(150);
+            }
+            else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RIGHT)) {
+                PlaySound("Interface");
+                SDL_Delay(150);
+            }
+        }
+        //thuc hien lenh button
+        if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RETURN)) {
+            if(m_Button0){
+                m_GamePause = false;
+                PlaySound("Interface");
+                m_Button0 = true;
+                m_Button1 = false;
+            }
+            else {
+                PlaySound("Interface");
+                SDL_Delay(150);
+                Quit();
+            }
+        }
     }
-
-
-    switch(m_HPoint) {
-    case 3:
-        TextureManager::GetInstance()->Draw("3HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
-        break;
-    case 2:
-        TextureManager::GetInstance()->Draw("2HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
-        break;
-    case 1:
-        TextureManager::GetInstance()->Draw("1HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
-        break;
-    default:
-        TextureManager::GetInstance()->Draw("0HPoint", 0, 0, 2400, 800, 0.1, 0.1, 0);
-        break;
-    }
-
-    DrawGamePoint();
 
     SDL_RenderPresent(m_Renderer); //cap nhat man hinh vs moi render ke tuw lan goi truoc
+
 }
 
 void Engine::Update()
 {
-    if(true) {
-        float dt = Timer::GetInstance()->GetDeltaTime(); //gan gia tri m_DeltaTime cho dt
+    float dt = Timer::GetInstance()->GetDeltaTime(); //gan gia tri m_DeltaTime cho dt
 
+    Mix_MasterVolume(12);
+
+    if(m_Menu == false) {
         for(unsigned int i=0; i != m_GameObjects.size(); i++) {
             m_GameObjects[i]->Update(dt); // vong lap update tat ca objects
         }
@@ -261,7 +436,7 @@ void Engine::PlaySound(std::string sound)
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/Fall.wav"), 0);
     else if(sound == "Die")
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/DieSound.wav"), 0);
-    else if(sound == "GameStart")
+    else if(sound == "Choose")
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/GameStartSound.wav"), 0);
     else if(sound == "GameOver")
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/GameOverSound.wav"), 0);
@@ -274,7 +449,7 @@ void Engine::PlaySound(std::string sound)
 }
 
 
-bool Engine::Clean(std::string LevelX)
+bool Engine::Clean()
 {
     for(unsigned int i=0; i != m_GameObjects.size(); i++) {
         m_GameObjects[i]->Clean(); //clean moi objects

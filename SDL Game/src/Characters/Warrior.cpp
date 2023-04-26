@@ -9,13 +9,7 @@
 #include<SDL.h>
 #include<SDL_image.h>
 #include<SDL_mixer.h>
-#include<SDL_ttf.h>
-/*
-Warrior::Warrior()
-{
 
-}
-*/
 Warrior::Warrior(Properties* props): Character(props)
 {
     m_IsRunning = false;
@@ -54,10 +48,10 @@ void Warrior::Draw()
 
 void Warrior::Update(float dt)
 {
+    if(!m_Pause) {
     m_IsRunning = false;
     m_IsCrouching = false; //gan false tu dau cho dang ngoi va dang chay
     m_RigidBody->UnSetForce(); //dam bao ko con luc tac dung khi nv ket thuc hanh dong,  neu bo di nv se chuyen dong mai mai
-
 
 
     //di chuyen sang ngang
@@ -77,7 +71,7 @@ void Warrior::Update(float dt)
 
 
     //ngoi
-    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_S) || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_DOWN)) {
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_S)) {
         m_RigidBody->UnSetForce();
         m_IsCrouching = true;
     }
@@ -85,7 +79,7 @@ void Warrior::Update(float dt)
 
 
     // Event nhay
-    if ((Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W) || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_UP)
+    if ((Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W)
          || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE)) && m_IsGrounded) { //chi duoc nhay len neu nv tren mat dat
 		m_IsJumping = true;
 		m_IsGrounded = false;
@@ -93,8 +87,8 @@ void Warrior::Update(float dt)
 		Engine::GetInstance()->PlaySound("Jump");
 	}
     // thuc hien event nhay
-	if ((Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W) || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_UP)
-      || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE)) && m_IsJumping && m_JumpTime > 0){//tac dung luc huong len theo tg nhay>0
+	if ((Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W) || Input::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE))
+      && m_IsJumping && m_JumpTime > 0){//tac dung luc huong len theo tg nhay>0
 		m_JumpTime -= dt;
         m_RigidBody->ApplyForceY(UPWARD * m_JumpForce);
 		//neu nhan nhay -> nhan vat nhay den khi m_JumpTime == 0
@@ -130,7 +124,8 @@ void Warrior::Update(float dt)
             Engine::GetInstance()->StatusUp();
             std::cout << "B checked! Gamepoint la: " << m_GamePoint << std::endl;
         }
-        else if(m_CheckA == true && m_Origin->X >= 330 && m_Origin->X <= 530 && m_Origin->Y >= 300) {
+        else if(m_CheckA == true && m_Origin->Y >= 300 && ((m_Origin->X >= 330 && m_Origin->X <= 443 && m_Flip == SDL_FLIP_NONE)
+                                                            || (m_Origin->X >= 455 && m_Origin->X <= 535 && m_Flip == SDL_FLIP_HORIZONTAL))) {
             m_CheckA = false;
             m_CheckB = true;
             m_GamePoint++;
@@ -186,7 +181,7 @@ void Warrior::Update(float dt)
     m_Origin->Y = m_Transform->Y + m_Height/2;
     //update gia tri vi tri cua origin vao chinh giua player cho camera di chuyen theo
 
-    if(m_Origin->Y >= 700 && m_Origin->Y <= 760) {m_IsDying = true;}
+    if(m_Origin->Y >= 750 && m_Origin->Y <= 780) {m_IsDying = true;}
     else{m_IsDying = false;}
 
     if(m_IsDying) {
@@ -202,7 +197,7 @@ void Warrior::Update(float dt)
             if(life == 0) {Engine::GetInstance()->PlaySound("GameOver");}
             if(life <= 0) {
                 m_GameOver = true;
-                Engine::GetInstance()->GameOver();
+//                Engine::GetInstance()->GameOver();
                 m_CheckA = false;
                 m_CheckB = true;
                 m_RigidBody->UnSetForce();
@@ -213,6 +208,7 @@ void Warrior::Update(float dt)
                     life = 3;
                     m_Transform->X = 280;
                     m_Transform->Y = 150;
+                    Engine::GetInstance()->PlaySound("Choose");
 
                     if(m_CheckA) {
                         Engine::GetInstance()->Check();
@@ -220,8 +216,6 @@ void Warrior::Update(float dt)
                 }
             }
             else {
-                std::cout << "Your Life = " << life << std::endl;
-                std::cout << "You died! Gamepoint la: " << m_GamePoint << std::endl;
                 SDL_Delay(1500);
                 if(m_CheckA == false) {
                     m_Transform->X = 280;
@@ -236,11 +230,17 @@ void Warrior::Update(float dt)
         }
     }
 
-//    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
-
-
     AnimationState();
     m_SpriteAnimation->Update(dt); //update animation theo dt
+//    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
+    }
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_ESCAPE)) {
+        m_Pause = !m_Pause;
+        Engine::GetInstance()->GamePause();
+    }
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RETURN)) {
+        m_Pause = false;
+    }
 }
 
 void Warrior::AnimationState()

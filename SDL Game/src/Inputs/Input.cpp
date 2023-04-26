@@ -46,15 +46,15 @@ int Input::GetAxisKey(Axis axis)
 {
     switch(axis){
         case HORIZONTAL: //di chuyen ngang
-            if(GetKeyDown(SDL_SCANCODE_D) || GetKeyDown(SDL_SCANCODE_RIGHT))
+            if(GetKeyDown(SDL_SCANCODE_D))
                 return 1;
-            if(GetKeyDown(SDL_SCANCODE_A) || GetKeyDown(SDL_SCANCODE_LEFT))
+            if(GetKeyDown(SDL_SCANCODE_A))
                 return -1;
             break;
         case VERTICAL: //di chuyen doc
-            if(GetKeyDown(SDL_SCANCODE_W) || GetKeyDown(SDL_SCANCODE_UP))
+            if(GetKeyDown(SDL_SCANCODE_W))
                 return 1;
-            if(GetKeyDown(SDL_SCANCODE_S) || GetKeyDown(SDL_SCANCODE_DOWN))
+            if(GetKeyDown(SDL_SCANCODE_S))
                 return -1;
             break;
 

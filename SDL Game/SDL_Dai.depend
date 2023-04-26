@@ -273,7 +273,7 @@
 	<iostream>
 	<string>
 
-1681889375 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\main.cpp
+1682347366 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\main.cpp
 	"Timer.h"
 	"Engine.h"
 	"Warrior.h"
@@ -281,7 +281,7 @@
 
 1681808696 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\timer\timer.h
 
-1682249291 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.h
+1682486985 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.h
 	"GameMap.h"
 	"GameObject.h"
 	<iostream>
@@ -290,7 +290,6 @@
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
-	<SDL_ttf.h>
 
 1681488960 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\gamemap.h
 	"Layer.h"
@@ -298,7 +297,7 @@
 
 1681231651 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\layer.h
 
-1681835977 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\object\gameobject.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\object\gameobject.h
 	"IObject.h"
 	"Transform.h"
 	"Point.h"
@@ -306,26 +305,22 @@
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
 1681031467 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\object\iobject.h
 
 1680953460 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\transform.h
 	"Vector2D.h"
 
-1681579400 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\vector2d.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\vector2d.h
 	<iostream>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
 1681825320 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\point.h
 	<iostream>
 
-1682314597 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
+1682484614 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
 	"Character.h"
 	"Animation.h"
 	"RigidBody.h"
@@ -339,41 +334,33 @@
 	<iostream>
 	<string>
 
-1681724308 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\animation.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\animation.h
 	<iostream>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
-1681662054 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\rigidbody.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\rigidbody.h
 	"Vector2D.h"
 	<iostream>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
-1681808250 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\collider.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\collider.h
 	"CollisionHandler.h"
 	"Camera.h"
 	"Engine.h"
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
-1681994636 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\collision\collisionhandler.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\collision\collisionhandler.h
 	"TileLayer.h"
 	"GameMap.h"
 	"Engine.h"
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
 1681408562 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\tilelayer.h
 	"Layer.h"
@@ -386,14 +373,12 @@
 	"Vector2D.h"
 	"Engine.h"
 
-1681725027 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\spriteanimation.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\spriteanimation.h
 	"Animation.h"
 	<iostream>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
 1681728209 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\seqanimation.cpp
 	"SeqAnimation.h"
@@ -401,15 +386,13 @@
 	"tinyxml.h"
 	<iostream>
 
-1681725830 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\seqanimation.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\seqanimation.h
 	"Animation.h"
 	<map>
 	<string>
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
 1681837938 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\graphics\texturemanager.h
 	<iostream>
@@ -442,7 +425,7 @@
 1681583598 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\camera\camera.cpp
 	"Camera.h"
 
-1682262254 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
+1682493899 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
 	"Input.h"
@@ -452,19 +435,16 @@
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
-	<SDL_ttf.h>
 
-1681661356 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\inputs\input.h
+1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\inputs\input.h
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
-1682046568 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\collision\collisionhandler.cpp
+1682424147 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\collision\collisionhandler.cpp
 	"CollisionHandler.h"
 	"iostream"
 
-1682314860 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.cpp
+1682494213 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -484,7 +464,7 @@
 	<string>
 	<map>
 
-1681962658 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\graphics\texturemanager.cpp
+1682485284 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\graphics\texturemanager.cpp
 	"TextureManager.h"
 	"Engine.h"
 	"Camera.h"
@@ -493,10 +473,8 @@
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
-1681661575 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\inputs\input.cpp
+1682427101 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\inputs\input.cpp
 	"Input.h"
 	"Engine.h"
 
@@ -509,12 +487,10 @@
 	"TextureManager.h"
 	"Camera.h"
 
-1681207305 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\timer\timer.cpp
+1682485284 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\timer\timer.cpp
 	"Timer.h"
 	<SDL.h>
 	<SDL_image.h>
-	<SDL_mixer.h>
-	<SDL_ttf.h>
 
 1305426297 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\vendor\tinyxml\tinystr.cpp
 	"tinystr.h"

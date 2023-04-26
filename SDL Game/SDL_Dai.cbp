@@ -63,8 +63,6 @@
 		</Compiler>
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Animation/Animation.h" />
-		<Unit filename="src/Animation/SeqAnimation.cpp" />
-		<Unit filename="src/Animation/SeqAnimation.h" />
 		<Unit filename="src/Animation/SpriteAnimation.cpp" />
 		<Unit filename="src/Animation/SpriteAnimation.h" />
 		<Unit filename="src/Camera/Camera.cpp" />

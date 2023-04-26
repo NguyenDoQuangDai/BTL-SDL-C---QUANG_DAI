@@ -40,9 +40,12 @@ class Warrior: public Character
         bool m_IsAttacking;
         bool m_IsCrouching;
         bool m_IsDying = false;
+
         bool m_CheckA = false;
         bool m_CheckB = true;
+
         bool m_GameOver = false;
+        bool m_Pause = false;
 
         int m_GamePoint = 0;
 

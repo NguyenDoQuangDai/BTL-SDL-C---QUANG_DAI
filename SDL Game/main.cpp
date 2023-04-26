@@ -6,7 +6,7 @@
 
 int main(int argc, char** argv) {
 
-    Engine::GetInstance()->Init("Level1");
+    Engine::GetInstance()->Init();
 
     while(Engine::GetInstance()->IsRunning()) {
         Engine:: GetInstance()->Events();
@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
         Timer::GetInstance()->Tick();
         //tra DeltaTime
         }
-    Engine::GetInstance()->Clean("Level1");
+    Engine::GetInstance()->Clean();
     // don truoc khi thoat game
     return 0;
 }

@@ -11,7 +11,6 @@
 #include<SDL.h>
 #include<SDL_image.h>
 #include<SDL_mixer.h>
-#include<SDL_ttf.h>
 
 #define SCREEN_WIDTH 1200
 #define SCREEN_HEIGHT 800
@@ -24,8 +23,8 @@ class Engine
             //check neu s_Instance la con tro null -> return => luon chi co 1 Instance cua class input nay
         }// singleton class
 
-        bool Init(std::string LevelX); //khoi tao engine
-        bool Clean(std::string LevelX); //don engine
+        bool Init(); //khoi tao engine
+        bool Clean(); //don engine
         void Quit(); //kt qua trinh
 
         void Update();
@@ -33,6 +32,9 @@ class Engine
         void Events();
 
         void GameOver();
+        void Menu();
+        void GamePause();
+
         void Check();
         void StatusDown();
         void StatusUp();
@@ -50,20 +52,22 @@ class Engine
         Engine() {}; //-> ko the tao instance cua Engine
         bool m_IsRunning;
 
-        bool m_Menu = true;
+        bool m_Menu;
+        bool m_Board = false;
+        bool m_GamePause;
+        bool m_Button0, m_Button1, m_Button2;
+
         bool m_GameOver = false;
         bool m_Checker = false;
 
-        bool m_FirstTime = true;
+        bool m_FirstTime;
 
-        int m_Point = 0;
-        int m_HPoint = 3;
+        int m_Point;
+        int m_HPoint;
+        int m_Num[5];
+        int m_NumCount;
+        int m_const;
 
-        int m_Num[5] = {};
-        int m_NumCount = 0;
-        int m_const = 0;
-
-        int m_Volume;
 
         GameMap* m_LevelMap;
         SDL_Window* m_Window;
