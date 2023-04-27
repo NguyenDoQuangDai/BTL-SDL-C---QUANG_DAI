@@ -25,12 +25,11 @@ Warrior::Warrior(Properties* props): Character(props)
     m_AttackTime = ATTACK_TIME;
 
     m_Collider = new Collider();
-    m_Collider->SetBuffer(-90, -68, 0, -6);
 
-    m_RigidBody = new RigidBody();
+    m_RigidBody = new RigidBody(); //khoi tao RigidBody
     m_RigidBody->SetGravity(9.0f); //tuy chinh gia toc trong trg
 
-    m_SpriteAnimation = new SpriteAnimation();
+    m_SpriteAnimation = new SpriteAnimation(); //khoi tao SAnimation
     m_SpriteAnimation->SetProps(m_TextureID, 1, 8, 200);
 }
 
@@ -117,7 +116,7 @@ void Warrior::Update(float dt)
             Engine::GetInstance()->StatusUp();
             std::cout << "B checked! Gamepoint la: " << m_GamePoint << std::endl;
         }
-        else if(m_CheckA == true && m_Origin->Y >= 300 && ((m_Origin->X >= 330 && m_Origin->X <= 443 && m_Flip == SDL_FLIP_NONE)
+        else if(m_CheckA == true && m_Origin->Y >= 300 && ((m_Origin->X >= 330 && m_Origin->X <= 455 && m_Flip == SDL_FLIP_NONE)
                                                             || (m_Origin->X >= 415 && m_Origin->X <= 535 && m_Flip == SDL_FLIP_HORIZONTAL))) {
             m_CheckA = false;
             m_CheckB = true;
@@ -141,7 +140,7 @@ void Warrior::Update(float dt)
 	//di chuyen tren truc x
 	m_RigidBody->Update(dt); //update RigidBody theo dt
 	m_LastSafePosition.X = m_Transform->X; //luu vi tri hien tai cua transform nv tren truc X truoc khi co va cham
-	m_Transform->X += m_RigidBody->Position().X; //tinh vi tri tren truc X su dung RigidBody va update m_Transform
+	m_Transform->X += m_RigidBody->Position().X; // vi tri tren truc X su dung RigidBody va update m_Transform
 	m_Collider->Set(m_Transform->X, m_Transform->Y, 20, 42); //tinh toan update box collider voi vi tri cua player
 
 	//goi vi tri safe neu xay ra va cham
@@ -153,7 +152,7 @@ void Warrior::Update(float dt)
 	//di chuyen tren truc y
 	m_RigidBody->Update(dt); //update RigidBody theo dt
 	m_LastSafePosition.Y = m_Transform->Y; //luu vi tri hien tai cua transform nv tren truc Y trc khi co va cham
-	m_Transform->Y += m_RigidBody->Position().Y; //tinh vi tri tren truc Y su dung RigidBody va update m_Transform
+	m_Transform->Y += m_RigidBody->Position().Y; // vi tri tren truc Y su dung RigidBody va update m_Transform
 	m_Collider->Set(m_Transform->X, m_Transform->Y, 20, 42); //tinh toan update box collider voi vi tri player
 
 	//goi vi tri safe neu xay ra va cham
@@ -209,7 +208,7 @@ void Warrior::Update(float dt)
                 }
             }
             else {
-                SDL_Delay(1500);
+                SDL_Delay(1000);
                 if(m_CheckA == false) {
                     m_Transform->X = 280;
                     m_Transform->Y = 150;

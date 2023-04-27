@@ -33,6 +33,8 @@ bool Engine::Init()
     }
 
     m_Renderer = SDL_CreateRenderer(m_Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC); //tao khung 2d cho cua so window
+    //...ACCELERATED: renderer sd tang toc phan cung
+    //...PRESENTVSYNC: hien tai(present) dc dong bo vs refresh rate
     if(m_Renderer == nullptr) {
         SDL_Log("Failed to create Renderer: %s", SDL_GetError());
         return false; //check xem tao renderer thanh cong khong
@@ -53,8 +55,6 @@ bool Engine::Init()
 
     Camera::GetInstance()->SetTarget(player->GetOrigin()); //dat vi tri target cho cameara la trung tam cua player
 
-    std::cout << "Engine Init sac set phu li!" << std::endl;
-
     m_Point = 0;
     m_HPoint = 3;
     m_Num[5] = {};
@@ -74,9 +74,11 @@ bool Engine::Init()
         return false;
     }
 
+    Mix_MasterVolume(8);
     PlaySound("Music");
 
     return m_IsRunning = true;
+    std::cout << "Engine Init sac set phu li!" << std::endl;
 }
 
 void Engine::GameOver()
@@ -289,7 +291,7 @@ void Engine::DrawGamePoint()
 
 void Engine::Render()
 {
-    SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255); //dat mau cho hoat dong ve (124, 218, 254)-xanh da troi dam
+    SDL_SetRenderDrawColor(m_Renderer, 0, 0, 100, 255); //dat mau cho hoat dong ve (124, 218, 254)-xanh da troi
     SDL_RenderClear(m_Renderer); //xoa mua tieu render hien tai bang mau ve truoc khi present
 
 
@@ -405,8 +407,6 @@ void Engine::Render()
 void Engine::Update()
 {
     float dt = Timer::GetInstance()->GetDeltaTime(); //gan gia tri m_DeltaTime cho dt
-
-    Mix_MasterVolume(12);
 
     if(m_Menu == false) {
         for(unsigned int i=0; i != m_GameObjects.size(); i++) {

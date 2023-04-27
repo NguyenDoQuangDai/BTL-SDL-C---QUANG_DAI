@@ -35,10 +35,6 @@ class RigidBody
         inline void UnSetForce() {m_Force = Vector2D(0,0);}
         //Luc F tac dung len player ptich theo Fx + Fy va luc vector 0
 
-        inline void ApplyFriction(Vector2D Fr) {m_Friction = Fr;}
-        inline void UnSetFriction() {m_Friction = Vector2D(0,0);}
-        //Luc ma sat va luc vector 0
-
         inline float GetMass() {return m_Mass;}
         inline Vector2D Position() {return m_Position;}
         inline Vector2D Velocity() {return m_Velocity;}

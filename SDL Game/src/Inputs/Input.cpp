@@ -6,6 +6,7 @@ Input* Input::s_Instance = nullptr; //khoi tao cho gia tri static Instance trc m
 Input::Input()
 {
     m_KeyStates = SDL_GetKeyboardState(nullptr);
+    //SDL_GetKeyBoardState: nhan anh chup nhanh(snapshot) trang thai htai cua ban phim -> return con tro vao mang KeyStates
 }
 
 void Input::Listen()
@@ -31,7 +32,6 @@ bool Input::GetKeyDown(SDL_Scancode key)
     return false;
 }
 
-//SDL_GetKeyBoardState: nhan anh chup nhanh(snapshot) trang thai htai cua ban phim -> (neu ko Null) return con tro vao chuoi KeyStates
 void Input::KeyUp()
 {
     m_KeyStates = SDL_GetKeyboardState(nullptr); //khoi tao keystate
@@ -51,13 +51,6 @@ int Input::GetAxisKey(Axis axis)
             if(GetKeyDown(SDL_SCANCODE_A))
                 return -1;
             break;
-        case VERTICAL: //di chuyen doc
-            if(GetKeyDown(SDL_SCANCODE_W))
-                return 1;
-            if(GetKeyDown(SDL_SCANCODE_S))
-                return -1;
-            break;
-
         default:
             return 0;
     }
