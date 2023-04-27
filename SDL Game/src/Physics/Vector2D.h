@@ -13,7 +13,7 @@ class Vector2D
         float X, Y; //X,Y theo 2 truc hoanh tung
 
     public:
-        Vector2D(float x = 0, float y = 0): X(x), Y(y) {} //dinh nghia vector voi 2 thanh phan X, Y
+        Vector2D(float x = 0, float y = 0): X(x), Y(y) {} //dinh nghia vector voi x, y mac dinh = 0
 
 
 

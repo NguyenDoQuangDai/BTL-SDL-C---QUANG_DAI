@@ -4,7 +4,7 @@
 #include "Vector2D.h"
 
 
-class Transform //tinh tien
+class Transform //tinh tien (danh cho vi tri)
 {
     public:
         float X, Y;
@@ -19,8 +19,8 @@ class Transform //tinh tien
 
 
     public:
-        inline void TranslateX(float x) {X += x;} //tinh tien theo truc x
-        inline void TranslateY(float y) {Y += y;} //tinh tien theo truc y
+        inline void TranslateX(float x) {X += x;} //tinh tien theo truc X (1 doan x)
+        inline void TranslateY(float y) {Y += y;} //tinh tien theo truc Y ...
         inline void Translate(Vector2D v) {X += v.X; Y += v.Y;} //tinh tien theo huong vector
 };
 

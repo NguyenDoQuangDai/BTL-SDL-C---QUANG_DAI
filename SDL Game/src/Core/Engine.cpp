@@ -44,7 +44,7 @@ bool Engine::Init()
     m_LevelMap = MapParser::GetInstance()->GetMap("Level1"); //lay map
 
     TextureManager::GetInstance()->ParseTextures("assets/textures.tml");
-    //ham phan tich parse texture va load cac image voi "id" va "path" trong file
+    //ham phan tich parse texture lay cac thong so "id" va "path" trong file va goi ham load cac image tu 2 thong so do
 
     Warrior* player = new Warrior(new Properties("player_idle", 280, 200, 200, 200)); //dat player vs boss bat dau vs trang thai idle
 
@@ -261,28 +261,28 @@ void Engine::DrawGamePoint()
     else {
         TextureManager::GetInstance()->Draw("GameOver", 240, 0, 1200, 1200, 0.6, 0.6);
 
-        TextureManager::GetInstance()->Draw("Coin", 616, 530, 5000, 5000, 0.032, 0.032, 0); //coin gameover
+        TextureManager::GetInstance()->Draw("Coin", 605, 530, 5000, 5000, 0.032, 0.032, 0); //coin gameover
         for(int i=0; i<m_NumCount; i++) {
             if(m_Num[i] == 0)
-                TextureManager::GetInstance()->Draw("0", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);//...
+                TextureManager::GetInstance()->Draw("0", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);//...
             else if(m_Num[i] == 1)
-                TextureManager::GetInstance()->Draw("1", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("1", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 2)
-                TextureManager::GetInstance()->Draw("2", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("2", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 3)
-                TextureManager::GetInstance()->Draw("3", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("3", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 4)
-                TextureManager::GetInstance()->Draw("4", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("4", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 5)
-                TextureManager::GetInstance()->Draw("5", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("5", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 6)
-                TextureManager::GetInstance()->Draw("6", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("6", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 7)
-                TextureManager::GetInstance()->Draw("7", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("7", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 8)
-                TextureManager::GetInstance()->Draw("8", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("8", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 9)
-                TextureManager::GetInstance()->Draw("9", (570 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("9", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
         }
     }
 }
@@ -291,14 +291,8 @@ void Engine::Render()
 {
     SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255); //dat mau cho hoat dong ve (124, 218, 254)-xanh da troi dam
     SDL_RenderClear(m_Renderer); //xoa mua tieu render hien tai bang mau ve truoc khi present
-/*
-    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_RETURN)) {
-        m_GameOver = false;
-        m_HPoint  = 3;
-        m_Point = 0;
-        m_Menu = true;
-    }
-*/
+
+
     if(m_Menu == false) {
         m_LevelMap->Render();//render map
         TextureManager::GetInstance()->Draw("back", 0, 0, 8000, 2462, 0.2373, 0.2373, 0.35);
@@ -339,7 +333,11 @@ void Engine::Render()
             break;
         }
 
+        if(m_Point == 9999) {GameOver();}
+
         DrawGamePoint();
+        if(!m_GameOver)
+            TextureManager::GetInstance()->Draw("esc", -25, 685, 600, 600, 0.32, 0.32, 0);
     }
 
     Menu();
@@ -457,6 +455,7 @@ bool Engine::Clean()
 
     TextureManager::GetInstance()->Clean(); //don moi texture
     MapParser::GetInstance()->Clean();
+
 
     SDL_DestroyRenderer(m_Renderer); //xoa renderer vs cua so gp bo nho
     SDL_Delay(500);

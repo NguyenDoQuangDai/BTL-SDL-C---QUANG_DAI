@@ -28,13 +28,13 @@ class Collider
         bool CollideWithMap() {
             return CollisionHandler::GetInstance()->MapCollision(m_Box);
         }
-
+/*
         void Draw() {
             Vector2D cam = Camera::GetInstance()->GetPosition();
             SDL_Rect box = {(int)(m_Box.x - cam.X), (int)(m_Box.y - cam.Y), m_Box.w, m_Box.h};
             SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box);
         }
-
+*/
 	private:
         SDL_Rect m_Box;
         SDL_Rect m_Buffer;

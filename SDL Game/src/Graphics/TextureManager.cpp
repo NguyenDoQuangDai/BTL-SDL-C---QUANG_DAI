@@ -15,15 +15,18 @@ bool TextureManager::Load(std::string id, std::string filename)
 {
     SDL_Surface* surface = IMG_Load(filename.c_str()); //load anh thanh surface,
     //SDL_Surface: cau truc chua du lieu pixel tho, kthc, dinh dang pixel
+    //IMG_Load: ham sdl image load image va bien no thanh surface (char)
+
     if(surface == nullptr) {
-        SDL_Log("Failed to load texture: %s, %s", filename.c_str(), SDL_GetError());//ktra surface
+        SDL_Log("Failed to load texture: %s, %s", filename.c_str(), SDL_GetError());//ktra load surface debug
         return false;
     }
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(Engine::GetInstance()->GetRenderer(), surface); //tao texture tu surface,
     //SDL_Texture: cau truc bieu dien du lieu pixel
+    //SDL_CreateTextureFromSurface: y nhu ten ham
     if(texture == nullptr) {
-        SDL_Log("Failed to create texture from surface: %s", SDL_GetError());//check
+        SDL_Log("Failed to create texture from surface: %s", SDL_GetError());//check xem texture co dc tao
         return false;
     }
 
@@ -33,16 +36,20 @@ bool TextureManager::Load(std::string id, std::string filename)
 }
 // SDL_Rect: cau truc dinh nghia 1 HCN tren screen.
 // SDL_RenderCopyEx: copy 1 phan texture vao render hien tai(co the xoay, lat).
+
+//srcRect: khoang HCN cua anh ma minh muon ve
+//dstRect: khoang HCN tren screen ma minh muon anh hien len
+
 void TextureManager::Draw(std::string id, int x, int y, int width, int height, float scaleX, float scaleY, float scrollRatio, SDL_RendererFlip flip)
 {   SDL_Rect srcRect = {0,  0, width, height};
     Vector2D cam = Camera::GetInstance()->GetPosition()*scrollRatio; //tuy thuoc scrollRatio ma background chuyen dong theo nv nhanh/cham
     SDL_Rect dstRect = {x - cam.X, y - cam.Y, width * scaleX, height * scaleY};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &dstRect, 0, nullptr, flip);
-    // -> ve background,...
+    // -> ve background,... nullptr co the thay bang goc xoay(double) nhung chua dungf den =)
 }
 
 void TextureManager::DrawFrame(std::string id, int x, int y, int width, int height, int row, int frame, SDL_RendererFlip flip)
-{   SDL_Rect srcRect = {width*frame,  height*(row-1), width, height};//lay cac frame trong sprite sheet lan luot
+{   SDL_Rect srcRect = {width*frame,  height*(row-1), width, height};//lay cac frame trong sprite sheet lan luot //lay row-1 vi dat
     Vector2D cam = Camera::GetInstance()->GetPosition(); //lay chinh xac gia tri vi tri camera
     SDL_Rect dstRect = {x - cam.X, y - cam.Y, width, height};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &dstRect, 0, nullptr, flip);

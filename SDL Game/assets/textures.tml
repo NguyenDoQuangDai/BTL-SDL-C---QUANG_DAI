@@ -13,6 +13,7 @@
     <texture id="quitword" source="assets/Image/QuitWord.png"/>
     <texture id="continueword" source="assets/Image/ContinueWord.png"/>
     <texture id="guideword" source="assets/Image/GuideWord.png"/>
+    <texture id="esc" source="assets/Image/ESC1.png"/>
     <texture id="name" source="assets/Image/Name.png"/>
 
     <texture id="back" source="assets/Image/Background.jpg"/>

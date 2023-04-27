@@ -37,13 +37,6 @@ Warrior::Warrior(Properties* props): Character(props)
 void Warrior::Draw()
 {
     m_SpriteAnimation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height, 1, 1, m_Flip);
-
-    Vector2D cam = Camera::GetInstance()->GetPosition();
-    SDL_Rect box = m_Collider->Get();
-    box.x -= cam.X;
-    box.y -= cam.Y;
-    //dieu chinh vi tri cua box theo camera do nhan vat ko vuot qua nua man hinh tru khi het map
-    //SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box); //draw box xong chinh lai sao cho vua nhan vat
 }
 
 void Warrior::Update(float dt)
@@ -125,7 +118,7 @@ void Warrior::Update(float dt)
             std::cout << "B checked! Gamepoint la: " << m_GamePoint << std::endl;
         }
         else if(m_CheckA == true && m_Origin->Y >= 300 && ((m_Origin->X >= 330 && m_Origin->X <= 443 && m_Flip == SDL_FLIP_NONE)
-                                                            || (m_Origin->X >= 455 && m_Origin->X <= 535 && m_Flip == SDL_FLIP_HORIZONTAL))) {
+                                                            || (m_Origin->X >= 415 && m_Origin->X <= 535 && m_Flip == SDL_FLIP_HORIZONTAL))) {
             m_CheckA = false;
             m_CheckB = true;
             m_GamePoint++;
@@ -194,8 +187,8 @@ void Warrior::Update(float dt)
 
             Engine::GetInstance()->StatusDown();
 
-            if(life == 0) {Engine::GetInstance()->PlaySound("GameOver");}
-            if(life <= 0) {
+            if(life == 0 || m_GamePoint == 9999) {Engine::GetInstance()->PlaySound("GameOver");}
+            if(life <= 0 || m_GamePoint == 9999) {
                 m_GameOver = true;
 //                Engine::GetInstance()->GameOver();
                 m_CheckA = false;

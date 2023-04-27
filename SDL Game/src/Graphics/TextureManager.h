@@ -14,6 +14,7 @@ class TextureManager
 {
     public:
         inline static TextureManager* GetInstance() {return s_Instance = (s_Instance != nullptr)? s_Instance : new TextureManager();}
+        //instance
 
         bool Load(std::string id, std::string filename); //thuc hien cn load texture co id
         bool ParseTextures(std::string source); //phan tich file texture
@@ -29,7 +30,7 @@ class TextureManager
 
     private:
         TextureManager(){};
-        std::map<std::string, SDL_Texture*> m_TextureMap; //quan ly texture bang id(string)
+        std::map<std::string, SDL_Texture*> m_TextureMap; //quan ly texture bang id(string): m_TextureMap[id] = texture; ben .cpp file
         static TextureManager* s_Instance;
 };
 

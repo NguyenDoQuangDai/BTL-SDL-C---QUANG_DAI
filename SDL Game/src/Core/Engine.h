@@ -20,7 +20,7 @@ class Engine
     public:
         static Engine* GetInstance() {
             return s_Instance = (s_Instance != nullptr)? s_Instance : new Engine();
-            //check neu s_Instance la con tro null -> return => luon chi co 1 Instance cua class input nay
+            //check neu s_Instance la con tro null -> tao new instance cho class. neu ko thi return => luon chi co 1 Instance cua class input nay
         }// singleton class
 
         bool Init(); //khoi tao engine
