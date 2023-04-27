@@ -2,8 +2,8 @@
 #define WARRIOR_H
 
 #define JUMP_TIME 14.0f
-#define JUMP_FORCE 6.2f
-#define RUN_FORCE 5.15f
+#define JUMP_FORCE 8.0f
+#define RUN_FORCE 8.0f
 #define ATTACK_TIME 25.0f
 
 #include "Character.h"

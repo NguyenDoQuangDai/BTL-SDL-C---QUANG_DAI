@@ -12,8 +12,8 @@
 #include<SDL_image.h>
 #include<SDL_mixer.h>
 
-#define SCREEN_WIDTH 1200
-#define SCREEN_HEIGHT 800
+#define SCREEN_WIDTH 1600
+#define SCREEN_HEIGHT 900
 
 class Engine
 {

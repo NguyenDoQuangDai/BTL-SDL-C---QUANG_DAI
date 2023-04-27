@@ -263,6 +263,4 @@ void Warrior::AnimationState()
 void Warrior::Clean()
 {
     TextureManager::GetInstance()->Drop(m_TextureID);
-
-    std::cout << "Warrior cleaned!" << std::endl;
 }

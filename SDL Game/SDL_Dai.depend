@@ -281,7 +281,7 @@
 
 1681808696 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\timer\timer.h
 
-1682523984 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.h
+1682578499 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.h
 	"GameMap.h"
 	"GameObject.h"
 	<iostream>
@@ -297,7 +297,7 @@
 
 1681231651 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\layer.h
 
-1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\object\gameobject.h
+1682574836 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\object\gameobject.h
 	"IObject.h"
 	"Transform.h"
 	"Point.h"
@@ -306,12 +306,12 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1681031467 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\object\iobject.h
+1682573893 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\object\iobject.h
 
-1680953460 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\transform.h
+1682572932 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\transform.h
 	"Vector2D.h"
 
-1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\vector2d.h
+1682572940 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\vector2d.h
 	<iostream>
 	<string>
 	<SDL.h>
@@ -320,7 +320,7 @@
 1681825320 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\point.h
 	<iostream>
 
-1682508937 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
+1682578754 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
 	"Character.h"
 	"Animation.h"
 	"RigidBody.h"
@@ -425,7 +425,7 @@
 1681583598 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\camera\camera.cpp
 	"Camera.h"
 
-1682564182 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
+1682578156 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
 	"Input.h"
