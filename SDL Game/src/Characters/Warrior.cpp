@@ -36,7 +36,7 @@ Warrior::Warrior(Properties* props): Character(props)
 
 void Warrior::Draw()
 {
-    m_SpriteAnimation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height, 1, 1, m_Flip);
+    m_SpriteAnimation->DrawFrame(m_Transform->X, m_Transform->Y, m_Width, m_Height, 1, 1, m_Flip);
 }
 
 void Warrior::Update(float dt)

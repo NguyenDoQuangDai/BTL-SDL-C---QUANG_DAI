@@ -441,7 +441,7 @@ void Engine::PlaySound(std::string sound)
     else if(sound == "Interface")
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/InterfaceSound.wav"), 0);
     else if(sound == "Music")
-        Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/BackMusic.wav"), -1);
+        Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/Music.wav"), -1);
     else if(sound == "Slash")
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/SlashSound.wav"), 0);
 }

@@ -49,7 +49,7 @@ void TextureManager::Draw(std::string id, int x, int y, int width, int height, f
 }
 
 void TextureManager::DrawFrame(std::string id, int x, int y, int width, int height, int row, int frame, SDL_RendererFlip flip)
-{   SDL_Rect srcRect = {width*frame,  height*(row-1), width, height};//lay cac frame trong sprite sheet lan luot //lay row-1 vi dat
+{   SDL_Rect srcRect = {width*frame,  height*(row-1), width, height};//lay cac frame trong sprite sheet lan luot //lay row-1 vi dat row dau = 1
     Vector2D cam = Camera::GetInstance()->GetPosition(); //lay chinh xac gia tri vi tri camera
     SDL_Rect dstRect = {x - cam.X, y - cam.Y, width, height};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &dstRect, 0, nullptr, flip);

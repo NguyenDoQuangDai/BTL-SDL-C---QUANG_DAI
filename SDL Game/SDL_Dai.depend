@@ -320,7 +320,7 @@
 1681825320 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\point.h
 	<iostream>
 
-1682578754 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
+1682602366 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
 	"Character.h"
 	"Animation.h"
 	"RigidBody.h"
@@ -329,7 +329,7 @@
 	"SpriteAnimation.h"
 	<iostream>
 
-1681040197 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\character.h
+1682582158 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\character.h
 	"GameObject.h"
 	<iostream>
 	<string>
@@ -373,7 +373,7 @@
 	"Vector2D.h"
 	"Engine.h"
 
-1682485284 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\spriteanimation.h
+1682583354 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\spriteanimation.h
 	"Animation.h"
 	<iostream>
 	<string>
@@ -418,14 +418,14 @@
 	<assert.h>
 	<string.h>
 
-1681726477 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\spriteanimation.cpp
+1682583364 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\animation\spriteanimation.cpp
 	"SpriteAnimation.h"
 	"TextureManager.h"
 
 1681583598 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\camera\camera.cpp
 	"Camera.h"
 
-1682578156 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
+1682583376 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
 	"Input.h"
@@ -444,7 +444,7 @@
 	"CollisionHandler.h"
 	"iostream"
 
-1682571001 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.cpp
+1682583533 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -464,7 +464,7 @@
 	<string>
 	<map>
 
-1682530045 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\graphics\texturemanager.cpp
+1682597686 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\graphics\texturemanager.cpp
 	"TextureManager.h"
 	"Engine.h"
 	"Camera.h"
