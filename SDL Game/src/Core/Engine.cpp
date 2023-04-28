@@ -60,6 +60,7 @@ bool Engine::Init()
     m_Num[5] = {};
     m_NumCount = 1;
     m_const = m_Point;
+    m_Volume = 10;
 
     m_Menu = true;
     m_GamePause = false;
@@ -74,7 +75,7 @@ bool Engine::Init()
         return false;
     }
 
-    Mix_MasterVolume(8);
+    Mix_MasterVolume(32);
     PlaySound("Music");
 
     return m_IsRunning = true;
@@ -416,6 +417,8 @@ void Engine::Update()
         Camera::GetInstance()->Update(dt); //update camera theo dt
         m_LevelMap->Update();
     }
+
+    ChangeVolume();
 }
 
 void Engine::Events()
@@ -444,6 +447,53 @@ void Engine::PlaySound(std::string sound)
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/Music.wav"), -1);
     else if(sound == "Slash")
         Mix_PlayChannel(-1, Mix_LoadWAV("assets/Sound/SlashSound.wav"), 0);
+}
+
+void Engine::ChangeVolume()
+{
+    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_0)) {
+        if(m_Volume != 0) {m_Volume = 0;}
+        else{m_Volume = 10;}
+        SDL_Delay(150);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_1)) {
+        m_Volume = 1;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_2)) {
+        m_Volume = 2;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_3)) {
+        m_Volume = 3;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_4)) {
+        m_Volume = 4;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_5)) {
+        m_Volume = 5;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_6)) {
+        m_Volume = 6;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_7)) {
+        m_Volume = 7;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_8)) {
+        m_Volume = 8;
+        SDL_Delay(100);
+    }
+    else if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_9)) {
+        m_Volume = 9;
+        SDL_Delay(100);
+    }
+
+    Mix_MasterVolume(3.2*m_Volume);
 }
 
 

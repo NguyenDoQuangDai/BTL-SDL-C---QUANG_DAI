@@ -281,7 +281,7 @@
 
 1681808696 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\timer\timer.h
 
-1682581345 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.h
+1682692570 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.h
 	"GameMap.h"
 	"GameObject.h"
 	<iostream>
@@ -425,7 +425,7 @@
 1681583598 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\camera\camera.cpp
 	"Camera.h"
 
-1682652676 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
+1682656475 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
 	"Input.h"

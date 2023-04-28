@@ -34,6 +34,7 @@ class Engine
         void GameOver();
         void Menu();
         void GamePause();
+        void ChangeVolume();
 
         void Check();
         void StatusDown();
@@ -67,6 +68,7 @@ class Engine
         int m_Num[5];
         int m_NumCount;
         int m_const;
+        int m_Volume;
 
 
         GameMap* m_LevelMap;
