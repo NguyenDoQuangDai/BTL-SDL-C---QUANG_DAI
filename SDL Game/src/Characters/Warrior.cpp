@@ -108,7 +108,7 @@ void Warrior::Update(float dt)
         if(!m_GameOver) {
             Engine::GetInstance()->PlaySound("Slash");
         }
-        if(m_CheckB == true && m_Origin->X >= 2820 && m_Origin->X <= 2940 && m_Origin->Y >= 300 && m_Origin->Y <= 350) {
+        if(m_CheckB == true && m_Origin->X >= 2816 && m_Origin->X <= 2940 && m_Origin->Y >= 290 && m_Origin->Y <= 350) {
             m_CheckB = false;
             m_CheckA = true;
             m_GamePoint++;
@@ -226,7 +226,7 @@ void Warrior::Update(float dt)
     AnimationState();
     m_SpriteAnimation->Update(dt); //update animation theo dt
 
-//    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
+    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
     }
     if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_ESCAPE)) {
         m_Pause = !m_Pause;
