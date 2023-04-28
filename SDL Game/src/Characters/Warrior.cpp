@@ -226,7 +226,7 @@ void Warrior::Update(float dt)
     AnimationState();
     m_SpriteAnimation->Update(dt); //update animation theo dt
 
-    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
+//    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
     }
     if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_ESCAPE)) {
         m_Pause = !m_Pause;

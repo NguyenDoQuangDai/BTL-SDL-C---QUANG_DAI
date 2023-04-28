@@ -68,7 +68,7 @@ class Engine
         int m_Num[5];
         int m_NumCount;
         int m_const;
-        int m_Volume;
+        int m_Volume, m_cVolume;
 
 
         GameMap* m_LevelMap;

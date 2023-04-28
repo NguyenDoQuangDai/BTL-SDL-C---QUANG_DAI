@@ -2,7 +2,7 @@
 
 Chạy game bằng compiler của CodeBlock(SDL_Dai.cpp). Nếu laptop yếu nên cắm sạc hoặc tắt tiết kiệm pin để tránh giật game.
 
-Game đã có Menu game khi khởi động, điều khiển Menu bằng phím mũi tên lên xuống và nhấn nút Enter để chọn. Điều khiển nhân vật bằng W A S D di chuyển theo hướng tấm bảng có dấu ! và nhấn K để chém tượng nữ thần/ con bù nhìn để lấy xu và Checkpoint. Nhân vật có 3 mạng và sẽ mất 1 mạng khi rơi xuống vực, sau đó hồi sinh tại Checkpoint mới nhất. Nếu số mạng bằng 0 thì sẽ GameOver và phải nhấn K để Restart. Khi đang chơi game và đang không bị GameOver, có thể nhấn ESC để Pause game (hay thoát Pause game) và sử dụng mũi tên sang trái phải để điều khiển Pause và nhấn Enter để chọn.
+Game đã có Menu game khi khởi động, điều khiển Menu bằng phím mũi tên lên xuống và nhấn nút Enter để chọn. Điều khiển nhân vật bằng W A S D di chuyển theo hướng tấm bảng có dấu ! và nhấn K để chém tượng nữ thần/ con bù nhìn để lấy xu và Checkpoint. Nhân vật có 3 mạng và sẽ mất 1 mạng khi rơi xuống vực, sau đó hồi sinh tại Checkpoint mới nhất. Nếu số mạng bằng 0 thì sẽ GameOver và phải nhấn K để Restart. Khi đang chơi game và đang không bị GameOver, có thể nhấn ESC để Pause game (hay thoát Pause game) và sử dụng mũi tên sang trái phải để điều khiển Pause và nhấn Enter để chọn. Khi Pause game âm thanh sẽ bị mute hoàn toàn.
 
 Có thể thay đổi âm lượng bằng các phím số 1-9 tương ứng 10%-90%. Nhấn phím 0 sẽ tắt âm thanh(mute), nhấn lần nữa để chuyển âm lượng về 100%.
 

@@ -61,6 +61,7 @@ bool Engine::Init()
     m_NumCount = 1;
     m_const = m_Point;
     m_Volume = 10;
+    m_cVolume = 10;
 
     m_Menu = true;
     m_GamePause = false;
@@ -99,7 +100,6 @@ void Engine::Menu()
     if(m_Menu == true) {
         TextureManager::GetInstance()->Draw("backmenu", 0, 0, 6000, 2700, 0.29, 0.29, 0);
         TextureManager::GetInstance()->Draw("name", -15, 20, 360, 240, 1.1, 1.1, 0);
-//        TextureManager::GetInstance()->Draw("shade", 400, 300, 348, 241, 1, 1, 0);
 
         if(m_Button0) TextureManager::GetInstance()->Draw("button2", 25, 300, 3000, 700, 0.1, 0.11, 0);
         else TextureManager::GetInstance()->Draw("button0", 25, 300, 3000, 700, 0.1, 0.11, 0);
@@ -178,7 +178,7 @@ void Engine::Menu()
         }
         if(m_Board) {
             TextureManager::GetInstance()->Draw("board", 230, 130, 1200, 632, 0.85, 0.85, 0);
-            TextureManager::GetInstance()->Draw("guide", 480, 90, 606, 660, 0.86, 0.86, 0);
+            TextureManager::GetInstance()->Draw("guide", 480, 150, 1212, 1200, 0.43, 0.43, 0);
         }
     }
     else {m_Board  = false;}
@@ -349,7 +349,7 @@ void Engine::Render()
         TextureManager::GetInstance()->Draw("pause", 100, 100, 1200, 710, 0.85, 0.85, 0);
         TextureManager::GetInstance()->Draw("button1", 465, 30, 3000, 700, 0.1, 0.11, 0);
         TextureManager::GetInstance()->Draw("pauseword", 515, 5, 1200, 700, 0.18, 0.2, 0);
-        TextureManager::GetInstance()->Draw("guide", 350, 100, 606, 660, 0.86, 0.86, 0);
+        TextureManager::GetInstance()->Draw("guide", 350, 140, 1212, 1200, 0.43, 0.43, 0);
 
         if(m_Button0) TextureManager::GetInstance()->Draw("button2", 250, 700, 3000, 700, 0.1, 0.11, 0);
         else TextureManager::GetInstance()->Draw("button0", 250, 700, 3000, 700, 0.1, 0.11, 0);
@@ -493,7 +493,12 @@ void Engine::ChangeVolume()
         SDL_Delay(100);
     }
 
-    Mix_MasterVolume(3.2*m_Volume);
+    if(!m_GamePause) {
+        m_cVolume = m_Volume;
+    }
+    else {m_cVolume = 0;}
+
+    Mix_MasterVolume(3.2*m_cVolume);
 }
 
 
