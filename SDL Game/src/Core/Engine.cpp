@@ -349,7 +349,7 @@ void Engine::Render()
         TextureManager::GetInstance()->Draw("pause", 100, 100, 1200, 710, 0.85, 0.85, 0);
         TextureManager::GetInstance()->Draw("button1", 465, 30, 3000, 700, 0.1, 0.11, 0);
         TextureManager::GetInstance()->Draw("pauseword", 515, 5, 1200, 700, 0.18, 0.2, 0);
-        TextureManager::GetInstance()->Draw("guide", 350, 140, 1212, 1200, 0.43, 0.43, 0);
+        TextureManager::GetInstance()->Draw("guide", 350, 150, 1212, 1200, 0.43, 0.43, 0);
 
         if(m_Button0) TextureManager::GetInstance()->Draw("button2", 250, 700, 3000, 700, 0.1, 0.11, 0);
         else TextureManager::GetInstance()->Draw("button0", 250, 700, 3000, 700, 0.1, 0.11, 0);
@@ -425,7 +425,6 @@ void Engine::Events()
 {
     Input::GetInstance()->Listen(); //ktra neu events xay ra
 }
-
 
 void Engine::PlaySound(std::string sound)
 {

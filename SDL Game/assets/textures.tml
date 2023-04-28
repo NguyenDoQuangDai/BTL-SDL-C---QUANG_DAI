@@ -7,7 +7,7 @@
     <texture id="button1" source="assets/Image/Button1.png"/>
     <texture id="button2" source="assets/Image/Button2.png"/>
 
-    <texture id="guide" source="assets/Image/Guide2.png"/>
+    <texture id="guide" source="assets/Image/Guide1.png"/>
     <texture id="pauseword" source="assets/Image/PauseWord.png"/>
     <texture id="playword" source="assets/Image/PlayWord.png"/>
     <texture id="quitword" source="assets/Image/QuitWord.png"/>
