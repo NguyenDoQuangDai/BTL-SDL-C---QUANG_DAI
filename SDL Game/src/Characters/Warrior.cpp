@@ -30,7 +30,6 @@ Warrior::Warrior(Properties* props): Character(props)
     m_RigidBody->SetGravity(9.0f); //tuy chinh gia toc trong trg
 
     m_SpriteAnimation = new SpriteAnimation(); //khoi tao SAnimation
-    m_SpriteAnimation->SetProps(m_TextureID, 1, 8, 200);
 }
 
 void Warrior::Draw()
@@ -41,8 +40,9 @@ void Warrior::Draw()
 void Warrior::Update(float dt)
 {
     if(!m_Pause) {
+    //gan false tu dau cho dang ngoi va dang chay
     m_IsRunning = false;
-    m_IsCrouching = false; //gan false tu dau cho dang ngoi va dang chay
+    m_IsCrouching = false;
     m_RigidBody->UnSetForce(); //dam bao ko con luc tac dung khi nv ket thuc hanh dong,  neu bo di nv se chuyen dong mai mai
 
 
@@ -103,12 +103,12 @@ void Warrior::Update(float dt)
 
     // Event tancong
     if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_K)) {
-        //m_RigidBody->UnSetForce(); //->Neu bo di thi vua chay vua tan cong duoc
+        m_RigidBody->UnSetForce(); //->Neu bo di thi vua chay vua tan cong duoc
         m_IsAttacking = true;
         if(!m_GameOver) {
             Engine::GetInstance()->PlaySound("Slash");
         }
-        if(m_CheckB == true && m_Origin->X >= 2820 && m_Origin->X <= 2940 && m_Origin->Y >= 300) {
+        if(m_CheckB == true && m_Origin->X >= 2820 && m_Origin->X <= 2940 && m_Origin->Y >= 300 && m_Origin->Y <= 350) {
             m_CheckB = false;
             m_CheckA = true;
             m_GamePoint++;
@@ -116,8 +116,9 @@ void Warrior::Update(float dt)
             Engine::GetInstance()->StatusUp();
             std::cout << "B checked! Gamepoint la: " << m_GamePoint << std::endl;
         }
-        else if(m_CheckA == true && m_Origin->Y >= 300 && ((m_Origin->X >= 330 && m_Origin->X <= 455 && m_Flip == SDL_FLIP_NONE)
-                                                            || (m_Origin->X >= 415 && m_Origin->X <= 535 && m_Flip == SDL_FLIP_HORIZONTAL))) {
+        else if(m_CheckA == true && (m_Origin->Y >= 300 && m_Origin->Y <= 425)
+                 && ((m_Origin->X >= 330 && m_Origin->X <= 455 && m_Flip == SDL_FLIP_NONE)
+                     || (m_Origin->X >= 415 && m_Origin->X <= 535 && m_Flip == SDL_FLIP_HORIZONTAL))) {
             m_CheckA = false;
             m_CheckB = true;
             m_GamePoint++;
@@ -224,6 +225,7 @@ void Warrior::Update(float dt)
 
     AnimationState();
     m_SpriteAnimation->Update(dt); //update animation theo dt
+
 //    std::cout << "X.Origin: " << m_Origin->X << "  Y.Origin: " << m_Origin->Y << std::endl;
     }
     if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_ESCAPE)) {

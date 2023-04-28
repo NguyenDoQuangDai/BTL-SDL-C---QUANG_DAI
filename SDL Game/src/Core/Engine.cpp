@@ -18,7 +18,7 @@ Warrior* player = nullptr; //tao object
 
 bool Engine::Init()
 {
-    if(SDL_Init(SDL_INIT_VIDEO) != 0 && IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) != 0) { //khoi tao he thong con su kien vs tai ho tro dinh dang anh png,jpg
+    if(SDL_Init(SDL_INIT_VIDEO) != 0 && IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) != 0) {//khoi tao he thong con su kien vs tai ho tro dinh dang anh png,jpg
         SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
         return false; //check xem khoi tao sdl thanh cong khoong
     }
@@ -266,25 +266,25 @@ void Engine::DrawGamePoint()
         TextureManager::GetInstance()->Draw("Coin", 605, 530, 5000, 5000, 0.032, 0.032, 0); //coin gameover
         for(int i=0; i<m_NumCount; i++) {
             if(m_Num[i] == 0)
-                TextureManager::GetInstance()->Draw("0", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);//...
+                TextureManager::GetInstance()->Draw("0", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);//...
             else if(m_Num[i] == 1)
-                TextureManager::GetInstance()->Draw("1", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("1", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 2)
-                TextureManager::GetInstance()->Draw("2", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("2", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 3)
-                TextureManager::GetInstance()->Draw("3", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("3", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 4)
-                TextureManager::GetInstance()->Draw("4", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("4", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 5)
-                TextureManager::GetInstance()->Draw("5", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("5", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 6)
-                TextureManager::GetInstance()->Draw("6", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("6", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 7)
-                TextureManager::GetInstance()->Draw("7", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("7", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 8)
-                TextureManager::GetInstance()->Draw("8", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("8", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
             else if(m_Num[i] == 9)
-                TextureManager::GetInstance()->Draw("9", (560 - (i+1)*30), 550, 2400, 2400, 0.05, 0.05, 0);
+                TextureManager::GetInstance()->Draw("9", (600 - (i+1)*60), 550, 2400, 2400, 0.05, 0.05, 0);
         }
     }
 }

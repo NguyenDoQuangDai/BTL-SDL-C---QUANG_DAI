@@ -2,6 +2,8 @@
 #include "TextureManager.h"
 #include "Camera.h"
 
+
+//thay co the mo file map3.xml trong assets/maps BANG APP TILED va click chuot phai vao ten tileset roi chon edit xem se de hieu doan code hon
 TileLayer::TileLayer(int tilesize, int rowcount, int colcount, TileMap tilemap, TilesetList tilesets) :
 m_TileSize(tilesize), m_ColCount(colcount), m_RowCount(rowcount), m_Tilemap(tilemap), m_Tilesets(tilesets) //khoi tao cac thanh phan
 {
@@ -45,6 +47,7 @@ void TileLayer::Render()
                     tileRow--;
                     tileCol = ts.ColCount - 1; //chuyen so row x, so col y ve row thu x-1, col thu y-1
                 }
+
                 TextureManager::GetInstance()->DrawTile(ts.Name, ts.TileSize, j * ts.TileSize, i * ts.TileSize, tileRow, tileCol);
                 //goi ham TextureManager drawtile voi cac thong so da tinh cua ts
                 //-> ve tile voi tileRow va tileCol trong tileset vao  hcn vi tri (j*32,i*32) nhu id trong ma tran tilemap

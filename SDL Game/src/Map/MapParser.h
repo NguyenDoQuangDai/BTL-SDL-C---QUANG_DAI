@@ -16,7 +16,7 @@ class MapParser
         void Clean();
 
         inline GameMap* GetMap(std::string id) {return m_MapDict[id];}
-        inline static MapParser* GetInstance() {return s_Instance = (s_Instance != nullptr)? s_Instance: new MapParser();} // singleton class
+        inline static MapParser* GetInstance() {return s_Instance = (s_Instance != nullptr)? s_Instance: new MapParser();}
 
     private:
         bool Parse(std::string id, std::string source); //muon phan tich cu phap cua map(parse map) phai huong anh xa vao map id va file name(source)
@@ -28,7 +28,7 @@ class MapParser
 
     private:
         //khoi tao cac static members
-        MapParser() {};
+        MapParser() {}; //->private constructor
         static MapParser* s_Instance;
         std::map<std::string, GameMap*> m_MapDict;  // anh xa map
                                                     // string -> Id cua map

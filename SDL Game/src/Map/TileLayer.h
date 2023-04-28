@@ -9,7 +9,7 @@
 struct Tileset{
     int FirstID, LastID; //first, last Id cua tileset
     int RowCount, ColCount; //so hang(row), cot(column)
-    int TileCount, TileSize; //tilecount: so tile ma tileset co = FirstId - LastId + 1, tilesize: 32x32 hay 16x16
+    int TileCount, TileSize; //tilecount: so tile ma tileset co = LastId - FirstId + 1, tilesize: 32x32 hay 16x16
     std::string Name, Source; //ten va ten file cua tileset
 };
 

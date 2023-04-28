@@ -1,13 +1,13 @@
 #include "MapParser.h"
 #include<iostream>
 
+//phan code nay thay co the mo file map3.xml trong assets/maps BANG NOTEPAD HOAC VISUAL STUDIO CODE de co the xem cac comment vd ma em de o duoi
+// nhu la: <layer id="5" name="Tile Layer 5" width="100" height="20"> se de hieu hon
 MapParser* MapParser::s_Instance = nullptr; //khoi tao instance, gan nullptr cho bien con tro static
 
-bool MapParser::Load(std::string LevelX)
+bool MapParser::Load(std::string LevelX) //load map3
 {   if(LevelX == "Level1")
         return Parse("Level1", "assets/maps/map3.xml"); //map3 -> id level1 se duoc them vao ham Parse trong MapDictionary (xem header file)
-    else if(LevelX == "Level2")
-        return Parse("Level2", "assets/maps/map2-extended.xml");
 }
 
 bool MapParser::Parse(std::string id, std::string source) //ptich tileset
@@ -67,7 +67,7 @@ Tileset MapParser::ParseTileset(TiXmlElement* xmlTileset)
     tileset.LastID = (tileset.FirstID + tileset.TileCount) - 1; //Id dau + so tile cua tileset - 1 = Id cuoi //xem int TileCount trong Tilelayer.h
 
     xmlTileset->Attribute("columns", &tileset.ColCount);
-    tileset.RowCount = tileset.TileCount / tileset.ColCount; //...
+    tileset.RowCount = tileset.TileCount / tileset.ColCount; //so row = so tile cua tileset / so col
     xmlTileset->Attribute("tilewidth", &tileset.TileSize);
 
 
@@ -90,11 +90,23 @@ TileLayer* MapParser::ParseTileLayer(TiXmlElement* xmlLayer, TilesetList tileset
             break;
         }
     }
+/*
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1363,1364,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1395,1396,0,0,0,0,0,0,0,0,
+*/
     std::string matrix(data->GetText()); //lay matrix tra ve ket qua dang string bang sd ham GetText()
     std::stringstream iss(matrix); //stringstream iss(): bien chuoi line thanh input stream
     std::string id; //gia tri value that su cua tile tren map
 
-    TileMap tilemap(rowcount, std::vector<int>(colcount, 0)); //tao ma tran mang 2 chieu tilemap
+    TileMap tilemap(rowcount, std::vector<int>(colcount, 0)); //tao ma tran mang 2 chieu tilemap va khoi tao moi gia tri la 0
 
     for(int row = 0; row < rowcount; row++) {
         for(int col = 0; col < colcount; col++) {

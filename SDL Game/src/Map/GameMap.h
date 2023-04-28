@@ -12,16 +12,16 @@ class GameMap
 
         void Render() {
             for(unsigned int i=0; i < m_MapLayers.size(); i++)
-                m_MapLayers[i]->Render(); //render moi layers
+                m_MapLayers[i]->Render(); //render moi layers cua map
         }
 
         void Update() {
             for(unsigned int i=0; i < m_MapLayers.size(); i++)
-                m_MapLayers[i]->Update(); //update tat ca layer
+                m_MapLayers[i]->Update(); //update tat ca layer cua map
         }
 
         std::vector<Layer*> GetLayers() {
-            return m_MapLayers; //lay MapLayers can thiet
+            return m_MapLayers; //tra ve MapLayers
         }
 
     private:

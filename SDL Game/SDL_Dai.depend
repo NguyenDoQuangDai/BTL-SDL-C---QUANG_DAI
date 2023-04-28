@@ -291,7 +291,7 @@
 	<SDL_image.h>
 	<SDL_mixer.h>
 
-1681488960 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\gamemap.h
+1682635845 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\gamemap.h
 	"Layer.h"
 	<vector>
 
@@ -320,7 +320,7 @@
 1681825320 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\point.h
 	<iostream>
 
-1682602366 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
+1682642051 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.h
 	"Character.h"
 	"Animation.h"
 	"RigidBody.h"
@@ -347,7 +347,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1682509093 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\collider.h
+1682653546 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\physics\collider.h
 	"CollisionHandler.h"
 	"Camera.h"
 	"Engine.h"
@@ -362,7 +362,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1681408562 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\tilelayer.h
+1682637348 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\tilelayer.h
 	"Layer.h"
 	<vector>
 	<string>
@@ -425,7 +425,7 @@
 1681583598 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\camera\camera.cpp
 	"Camera.h"
 
-1682610039 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
+1682652676 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\characters\warrior.cpp
 	"Warrior.h"
 	"TextureManager.h"
 	"Input.h"
@@ -444,7 +444,7 @@
 	"CollisionHandler.h"
 	"iostream"
 
-1682609473 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.cpp
+1682652609 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -457,7 +457,7 @@
 	<iostream>
 	<string>
 
-1681876217 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\mapparser.h
+1682637093 c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\mapparser.h
 	"GameMap.h"
 	"TileLayer.h"
 	"tinyxml.h"
@@ -478,11 +478,11 @@
 	"Input.h"
 	"Engine.h"
 
-1681876417 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\mapparser.cpp
+1682642915 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\mapparser.cpp
 	"MapParser.h"
 	<iostream>
 
-1681562235 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\tilelayer.cpp
+1682642986 source:c:\apps\new folder\btl-sdl-c---quang_dai\sdl game\src\map\tilelayer.cpp
 	"TileLayer.h"
 	"TextureManager.h"
 	"Camera.h"
