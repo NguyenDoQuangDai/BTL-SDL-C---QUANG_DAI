@@ -28,6 +28,8 @@ https://itch.io/game-assets/tag-menu/tag-png
 
 https://www.erase.bg/fr/upload
 
+https://www.photoroom.com/background-remover
+
 https://pngtree.com/
 
 https://pixabay.com/sound-effects/
