@@ -20,7 +20,8 @@ https://www.youtube.com/watch?v=1KD4Ae0tX0g&list=PL-K0viiuJ2RctP5nlJlqmHGeh66-GO
 https://www.youtube.com/watch?v=o0nyxxWRPnA&t=777s&ab_channel=AveryMakesGames
 
 Các nguồn ảnh, video và âm thanh:
-Map được vẽ tay bằng app Tiled sử dụng các tilesets trên internet.
+
+Map được vẽ tay bằng app Tiled sử dụng các tilesets trên internet. Một vài ảnh được vẽ hoặc chỉnh sửa bằng Paint.
 
 https://itch.io/game-assets/tag-menu/tag-png
 
